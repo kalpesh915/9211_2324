@@ -1,0 +1,20 @@
+/* External CSS file */
+
+body{
+    background-color: aquamarine;
+    padding: 10px;
+}
+
+h1{
+    text-align: center;
+    background-color: chocolate;
+    color: white;
+    padding: 20px;
+}
+
+p{
+    text-align: justify;
+    padding: 20px;
+    background-color: brown;
+    color: white;
+}
