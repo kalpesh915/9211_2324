@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Without Z index property */
+
+        .blackbox{
+            width: 800px;
+            height: 500px;
+            border: 10px solid black;
+            position: relative;
+        }
+
+        .redbox{
+            width: 200px;
+            height: 200px;
+            border: 10px solid red;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+        }
+
+        .greenbox{
+            width: 300px;
+            height: 400px;
+            border: 10px solid green;
+            position: absolute;
+            left: 150px;
+            top: 70px;
+        }
+
+        .bluebox{
+            width: 400px;
+            height: 300px;
+            border: 10px solid blue;
+            position: absolute;
+            left: 250px;
+            top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="blackbox">
+        <div class="redbox"></div>
+        <div class="greenbox"></div>
+        <div class="bluebox"></div>
+    </div>
+</body>
+</html>
