@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dropdown{
+            display: inline-block;
+            position: relative;
+        }
+
+        .dropdown-content{
+            padding: 20px;
+            background-color: yellow;
+            color: red;
+            position: absolute;
+            width: 300px;
+            text-align: center;
+            display: none;
+        }
+
+        .dropdown:hover .dropdown-content{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="dropdown">
+        Mouse Over Me
+        <div class="dropdown-content">
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum eligendi voluptatum ab, provident totam asperiores aperiam ad consequuntur numquam repellendus maxime soluta sunt. Laborum officia natus consequatur sint velit libero! </p>
+        </div>
+    </div>
+</body>
+</html>

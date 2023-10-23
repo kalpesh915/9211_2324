@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dropdown{
+            display: inline-block;
+            position: relative;
+            right: 0px;
+        }
+
+        .dropbtn{
+            background-color: #4caf50;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown-content{
+            display: none;
+            position: absolute;
+            background-color: gray;
+            min-width: 160px;
+            z-index: 1;
+            box-shadow: 2px 2px 3px 0px black;
+        }
+
+        .dropdown-content a{
+            color: white;
+            display: block;
+            text-align: center;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+
+        .dropdown-content a:hover{
+            background-color: #f3f3f3;
+            color: black;
+        }
+        .dropdown:hover .dropdown-content{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="dropdown">
+        <button class="dropbtn">Langauges</button>
+
+        <div class="dropdown-content">
+            <a href="#">C Langauge</a>
+            <a href="#">HTML</a>
+            <a href="#">CSS</a>
+            <a href="#">Java Script</a>
+            <a href="#">PHP</a>
+        </div>
+    </div>
+</body>
+</html>
