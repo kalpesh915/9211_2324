@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form{
+            background-color: bisque;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        input[type="email"], input[type="password"], select{
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            margin: 10px 0px;
+            font-size: 35px;
+        }
+
+        input[type="submit"], input[type="reset"]{
+            background-color: green;
+            color: white;
+            display: inline-block;
+            padding: 20px;
+            text-align: center;
+            border: none;
+            width: 160px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <label for="email">Enter Email Address</label>
+        <input type="email" name="email" id="email" required>
+        <label for="upass">Enter Password</label>
+        <input type="password" name="upass" id="upass" required>
+        <label for="utype">Select User Type</label>
+        <select>
+            <option>Admin</option>
+            <option>User</option>
+            <option>Guest</option>
+        </select>
+        <input type="submit" value="Login">
+        <input type="reset" value="Reset">
+    </form>
+</body>
+</html>

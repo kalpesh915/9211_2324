@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      ol{
+        list-style-type: none;
+        counter-reset: section;
+      }
+
+      li::before{
+        counter-increment: section;
+        content: counters(section, " . ") " ";
+      }
+    </style>
+</head>
+<body>
+    <ol>
+        <li>State 1</li>
+        <li>State 2</li>
+        <li>    
+            State 3
+            <ol>
+                <li>City 3.1</li>
+                <li>City 3.2</li>
+                <li>City 3.3</li>
+            </ol>
+        </li>
+        <li>    
+            State 4
+            <ol>
+                <li>City 4.1</li>
+                <li>City 4.2</li>
+                <li>City 4.3</li>
+            </ol>
+        </li>
+        <li>State 5</li>
+    </ol>
+</body>
+</html>
