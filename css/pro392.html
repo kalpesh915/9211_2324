@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 200px;
+            background-color: red;
+            color: yellow;
+            transition: width 10s;
+            /* The cubic-bezier() function defines a Cubic Bezier curve. A Cubic Bezier curve is defined by four points P0, P1, P2, and P3. P0 and P3 are the start and the end of the curve and, in CSS these points are fixed as the coordinates are ratios. */
+            transition-timing-function: cubic-bezier(.42,.4,.73,1.13);
+        }
+
+        div:hover{
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        Mouse over Me
+    </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            color: yellow;
+            position: relative;
+            top: 0px;
+            left: 0px;
+            animation-name: myAnimation;
+            animation-duration: 10s;
+            animation-delay: 5s;
+            animation-fill-mode: backwards;
+        }
+
+        @keyframes myAnimation{
+            0%{
+                background-color: green;
+                left: 0px;
+                top: 0px;
+            }
+            25%{
+                background-color: purple;
+                left: 500px;
+                top: 0px;
+            }
+            50%{
+                background-color: gray;
+                left: 500px;
+                top: 500px;
+            }
+            75%{
+                background-color: blue;
+                left: 0px;
+                top: 500px;
+            }
+            100%{
+                background-color: yellow;
+                left: 0px;
+                top: 0px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        Mouse over Me
+    </div>
+</body>
+</html>

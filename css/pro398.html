@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            color: yellow;
+            animation-name: myAnimation;
+            animation-duration: 10s;
+        }
+
+        @keyframes myAnimation{
+            0%{
+                background-color: red;
+            }
+            25%{
+                background-color: purple;
+            }
+            50%{
+                background-color: gray;
+            }
+            75%{
+                background-color: blue;
+            }
+            100%{
+                background-color: yellow;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        Mouse over Me
+    </div>
+</body>
+</html>
