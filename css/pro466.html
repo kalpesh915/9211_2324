@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            padding: 8px 16px;
+            list-style: none;
+            background-color: #eee;
+        }
+
+        ul li{
+            display: inline;
+        }
+
+        li::before{
+            content: "/\00a0";
+            padding: 10px;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>Home</li>
+        <li>Settings</li>
+        <li>Account</li>
+        <li>Security</li>
+        <li>Password</li>
+    </ul>
+</body>
+
+</html>
