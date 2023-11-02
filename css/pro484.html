@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            background-color: peachpuff;
+        }
+        
+        /* change the background color of webpage when screen width is less than 1200px */
+        @media screen and (max-width:1200px){
+            body{
+                background-color: crimson;
+            }
+        }
+
+        /* change the background color of webpage when screen width is less than 900px */
+        @media screen and (max-width:900px){
+            body{
+                background-color: chocolate;
+            }
+        }
+
+        /* change the background color of webpage when screen width is less than 600px */
+        @media screen and (max-width:600px){
+            body{
+                background-color: palevioletred;
+            }
+        }
+    </style>
+</head>
+<body onresize="getwidth()">
+    <h1 id="op"></h1>
+    <h1>This is example of css 3 media query</h1>
+
+</body>
+</html>
+
+<script>
+    function getwidth(){
+        document.getElementById("op").innerHTML = window.innerWidth;
+    }
+</script>

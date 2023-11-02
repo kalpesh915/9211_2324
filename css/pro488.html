@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .column{
+            float: left;
+            width: 25%;
+            padding: 20px;
+            border: 1px solid black;
+            box-sizing: border-box;
+            text-align: justify;
+        }
+
+        @media screen and (max-width:900px){
+            .column{
+                width: 50%;
+            }
+        }
+
+        @media screen and (max-width:600px){
+            .column{
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body onresize="getwidth()">
+    <h1 id="op"></h1>
+    <div class="column">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel quam rerum repudiandae iste quasi dolore repellat, beatae nihil praesentium officiis est? Dignissimos, ut? Facere illo tempora non, eaque blanditiis officia?</div>
+    <div class="column">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel quam rerum repudiandae iste quasi dolore repellat, beatae nihil praesentium officiis est? Dignissimos, ut? Facere illo tempora non, eaque blanditiis officia?</div>
+    <div class="column">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel quam rerum repudiandae iste quasi dolore repellat, beatae nihil praesentium officiis est? Dignissimos, ut? Facere illo tempora non, eaque blanditiis officia?</div>
+    <div class="column">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel quam rerum repudiandae iste quasi dolore repellat, beatae nihil praesentium officiis est? Dignissimos, ut? Facere illo tempora non, eaque blanditiis officia?</div>
+    <div class="column">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel quam rerum repudiandae iste quasi dolore repellat, beatae nihil praesentium officiis est? Dignissimos, ut? Facere illo tempora non, eaque blanditiis officia?</div>
+    <div class="column">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel quam rerum repudiandae iste quasi dolore repellat, beatae nihil praesentium officiis est? Dignissimos, ut? Facere illo tempora non, eaque blanditiis officia?</div>
+    <div class="column">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel quam rerum repudiandae iste quasi dolore repellat, beatae nihil praesentium officiis est? Dignissimos, ut? Facere illo tempora non, eaque blanditiis officia?</div>
+    <div class="column">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel quam rerum repudiandae iste quasi dolore repellat, beatae nihil praesentium officiis est? Dignissimos, ut? Facere illo tempora non, eaque blanditiis officia?</div>
+</body>
+</html>
+
+<script>
+    function getwidth(){
+        document.getElementById("op").innerHTML = screen.availWidth;
+    }
+</script>

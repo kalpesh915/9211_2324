@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        ul{
+            list-style-type: none;
+            padding: 0px;
+            margin: 0px;
+            width: 100%;
+            background-color: black;
+            overflow: auto;
+        }
+
+        li{
+            float: left;
+        }
+
+        li a{
+            display: inline-block;
+            padding: 8px 16px;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        li a:hover{
+            background-color: gray;
+        }
+
+        @media screen and (max-width:600px) {
+            li {
+                display: block;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="#">Link 1</a></li>
+        <li><a href="#">Link 2</a></li>
+        <li><a href="#">Link 3</a></li>
+        <li><a href="#">Link 4</a></li>
+        <li><a href="#">Link 5</a></li>
+    </ul>
+</body>
+</html>

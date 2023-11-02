@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="style3.css" type="text/css" rel="stylesheet" media="screen and (max-width:1200px)">
+    <link href="style2.css" type="text/css" rel="stylesheet" media="screen and (max-width:1000px)">
+    <link href="style1.css" type="text/css" rel="stylesheet" media="screen and (max-width:600px)">
+</head>
+<body onresize="getwidth()">
+    <h1 id="op"></h1>
+    <h1>This is example of css 2 media type</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus porro debitis, cum, quia aspernatur animi beatae, cumque aut sed earum sunt rem inventore dolorem similique odio quo. Placeat, fugit tempora.</p>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium odio corporis in eum ut odit id, non vitae qui inventore ipsa tenetur quis dolor harum esse voluptatibus? Tempore, distinctio numquam.</p>
+</body>
+</html>
+
+<script>
+    function getwidth(){
+        document.getElementById("op").innerHTML = window.innerWidth;
+    }
+</script>

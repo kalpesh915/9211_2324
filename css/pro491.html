@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        @media screen and (orientation:landscape){
+            body{
+                background-color: teal;
+            }
+        }
+
+        @media screen and (orientation:portrait){
+            body{
+                background-color: tan;
+            }
+        }
+    </style>
+</head>
+<body onresize="getwidth()">
+    <h1 id="op"></h1>
+   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae nemo blanditiis non doloremque, illo exercitationem voluptate mollitia pariatur? Ad omnis saepe quas modi praesentium beatae adipisci ipsam fugiat corrupti natus.</p>
+</body>
+</html>
+
+<script>
+    function getwidth(){
+        document.getElementById("op").innerHTML = screen.availWidth;
+    }
+</script>
