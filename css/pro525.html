@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+
+        .column1{
+            width: 25%;
+            background-color: brown;
+            padding: 10px;
+            border: 1px solid black;
+            color: white;
+            float: left;
+        }
+
+        .column2{
+            width: 75%;
+            background-color: chocolate;
+            padding: 10px;
+            border: 1px solid black;
+            color: white;
+            float: left;
+        }
+
+        /* if sceeen is less than 600px then make all colums to 100% */
+        @media screen and (max-width:600px){
+            .column1, .column2{
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="column1">This is Column 1</div>
+    <div class="column2">This is Column 2</div>
+</body>
+</html>
