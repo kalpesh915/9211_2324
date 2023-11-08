@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container {
+            display: grid;
+            grid-template-areas: 'header header header header header'
+            'left menu menu menu right'
+            'left data data data right'
+            'left footer footer footer right';
+            grid-column-gap: 10px;
+            grid-row-gap: 10px;
+            background-color: #2196F3;
+            padding: 10px;
+        }
+
+        .item {
+            background-color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 20px 20px;
+            font-size: 30px;
+        }
+
+        .item1{
+            grid-area: header;
+        }
+
+        .item2{
+            grid-area: menu;
+        }
+
+        .item3{
+            grid-area: left;
+        }
+
+        .item4{
+            grid-area: data;
+        }
+
+        .item5{
+            grid-area: right;
+        }
+
+        .item6{
+            grid-area: footer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item item1">1</div>
+        <div class="item item2">2</div>
+        <div class="item item3">3</div>
+        <div class="item item4">4</div>
+        <div class="item item5">5</div>
+        <div class="item item6">6</div>
+    </div>    
+</body>
+
+</html>
