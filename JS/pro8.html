@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select onchange="setSize(this.value)">
+        <option>10</option>
+        <option>16</option>
+        <option>20</option>
+        <option>24</option>
+        <option>30</option>
+        <option>36</option>
+        <option>40</option>
+        <option>46</option>
+        <option>50</option>
+        <option>56</option>
+    </select>
+    <hr>
+    <p id="op">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam cupiditate, laudantium enim voluptatum dicta iusto sequi est provident doloremque maxime sunt voluptates sapiente, magni ut. Velit corporis nisi sapiente eos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur molestias repellendus quia optio, debitis eveniet voluptate repudiandae. Inventore molestiae sapiente recusandae ratione eos quibusdam corrupti nisi alias, libero optio molestias! Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae vero architecto molestias dolorem numquam, explicabo ut ipsum! Odio blanditiis facere ipsam officia saepe. Maxime aliquam quia, consequuntur delectus aut velit? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam cupiditate, laudantium enim voluptatum dicta iusto sequi est provident doloremque maxime sunt voluptates sapiente, magni ut. Velit corporis nisi sapiente eos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur molestias repellendus quia optio, debitis eveniet voluptate repudiandae. Inventore molestiae sapiente recusandae ratione eos quibusdam corrupti nisi alias, libero optio molestias! Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae vero architecto molestias dolorem numquam, explicabo ut ipsum! Odio blanditiis facere ipsam officia saepe. Maxime aliquam quia, consequuntur delectus aut velit?</p>
+</body>
+</html>
+
+<script>
+    function setSize(size){
+        //alert(size);
+        document.getElementById("op").style.fontSize = size+"px";
+    }
+</script>
