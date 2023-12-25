@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    /*
+        The ??= Operator
+        The Nullish coalescing assignment operator is used between two values.
+        If the first value is undefined or null, the second value is assigned.
+    */
+
+   let x = 100;
+   let y; // Undefined / NaN
+
+   let ans = x / (y ?? 1);
+   // (y ?? 1) = replace value of y to 1 if no values present in variable y
+
+   document.write("<hr> Answer is "+ ans);
+</script>
