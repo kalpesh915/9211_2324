@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+
+</html>
+
+<script>
+    /*
+        The Nullish Coalescing Operator (??)
+        The ?? operator returns the first argument if it is not nullish (null or undefined).
+        Otherwise it returns the second argument.
+    */    
+
+    let ip1 = 100;
+    let ip2;
+    /*
+        replace value of ip2 to 1 if ip2 does not have any valid value
+    */ 
+    let ans = ip1 / (ip2 ?? 1);
+
+    document.write("<hr>Answer is "+ans);
+</script>
