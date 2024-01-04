@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+
+</html>
+
+<script>
+    /*
+        switch case
+        ip1 = string by default
+        case 1 to 12 is numbers 
+        so compare alwasys return false
+    */
+
+    let ip1 = (prompt("Enter any month number"));
+    
+    switch(ip1){
+        case "11":
+        case "12":
+        case "1":
+        case "2":{
+            document.write("<hr> Winter");
+            break;
+        }
+        case "3":
+        case "4":
+        case "5":
+        case "6":{
+            document.write("<hr> Summer");
+            break;
+        }
+        case "7":
+        case "8":
+        case "9":
+        case "10":{
+            document.write("<hr> Monsoon");
+            break;
+        }
+        default:{
+            document.write("<hr> Month is out of Range");
+            break;
+        }
+    }
+</script>

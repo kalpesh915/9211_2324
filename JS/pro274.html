@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+
+</html>
+
+<script>
+    let hours = new Date().getHours();
+
+    //alert(hours);
+
+    if(hours > 6 && hours < 12){
+        document.write("<hr> Good Morning");
+    }else if(hours > 12 && hours <= 20){
+        document.write("<hr> Good Day");
+    }else{
+        document.write("<hr> Good Evening");
+    }
+</script>
