@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+
+</html>
+
+<script>
+    /*
+        reverse the entered number
+    */
+
+    ip1 = Number(prompt("Enter any number "))
+    document.write("<hr> Entered number is "+ip1);
+    count = 0;
+    while(ip1 > 0){
+        count *= 10;
+        count += ip1 % 10;
+        ip1 = parseInt(ip1 / 10);
+    }
+
+    document.write("<hr> Answer is "+count);
+</script>
