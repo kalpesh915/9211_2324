@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    function myDiv(ip1, ip2){
+        if(ip2 == 0 || isNaN(ip2) || ip2 == undefined){
+            throw "Division is not possible";
+        }else{
+            document.write("<hr> Division is "+(ip1 / ip2));
+        }
+    }
+
+    try{
+        //myDiv(111, "Rajkot");
+        myDiv(111, 12);
+    }catch(err){
+        document.write("Error is "+err);
+    }
+    
+</script>
