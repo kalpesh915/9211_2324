@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    const myObjects = {
+        "students" : [
+            {"roll": 123, "fname" : "Riya", "lname":"Barad","city":"Rajkot"},
+            {"roll": 124, "fname" : "Khushi", "lname":"Thakar","city":"Chotila"},
+            {"roll": 125, "fname" : "Hetvi", "lname":"Maheshwari","city":"Morbi"},
+        ]
+    };
+
+    document.write("<hr>"+myObjects);
+    myJson = JSON.stringify(myObjects); // Convert Java Script Objects to JSON string
+    document.write("<hr>"+myJson);
+</script>

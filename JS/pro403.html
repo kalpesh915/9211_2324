@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    /*
+        this in a Method
+        When used in an object method, this refers to the object. In the example on top of this page, this refers to the person object. Because the fullName method is a method of the person object.
+    */
+
+    const student = {
+        roll: 123,
+        fname : "Ridham",
+        lname : "Vishnuswamin",
+        city : "Rajkot",
+        getData : function(){
+            /*  considered as local variable fname and lname
+                fname = "Sumit";
+                lname = "Talsaniya"
+                return fname+" "+lname;
+            */
+
+            return this.fname+" "+this.lname;
+        }
+    }
+
+    document.write("Welcome "+student.getData());
+</script>

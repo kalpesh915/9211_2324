@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    /*
+        Arrow functions were introduced in ES6. Arrow functions allow us to write shorter function syntax:
+
+        function findMax(i, j){
+            let ans;
+
+            if(i > j){
+                ans = i;
+            }eles{
+                ans = j;
+            }
+            return ans;
+        }
+    */
+
+    // arrow function
+    /*   let function_name = (parameters) => executable code*/
+    let findMax = (x, y) => (x > y ? x : y);
+
+    document.write(findMax(5, 13));
+</script>

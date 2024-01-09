@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    /*
+       this in a Function (Default)
+       In a function, the global object is the default binding for this.
+        In a browser window the global object is [object Window]:
+    */
+
+    function msg() {
+        document.write(this);
+    }
+    msg();
+</script>
