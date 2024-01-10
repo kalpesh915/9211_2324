@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    /*
+        ECMAScript 2015, also known as ES6, introduced JavaScript Classes. JavaScript Classes are templates for JavaScript Objects.
+    */
+
+    class Student {
+        constructor(roll, fname, lname, city){
+            // alert("Constructor Called for Roll No. "+roll);
+            this.roll = roll;
+            this.fname = fname;
+            this.lname = lname;
+            this.city = city;
+        }
+
+        getData(){
+            return this.roll+" "+this.fname+" "+this.lname+" "+this.city;
+        }
+
+        setData(fname, lname, city){
+            this.fname = fname;
+            this.lname = lname;
+            this.city = city;
+        }
+    }
+
+    let student1 = new Student(111, "Ridham", "Vishnuswami", "Rajkot");
+    
+
+    document.write("<hr>"+student1.getData());
+    student1.setData("Bhalabhai", "Bavliya", "Limdi");
+    document.write("<hr>"+student1.getData());
+</script>
