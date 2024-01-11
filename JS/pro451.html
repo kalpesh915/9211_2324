@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    /*
+     
+    */ 
+
+    const student = {
+        roll : 123,
+        fname : "Kenil",
+        lname : "Sangani",
+        city : "Rajkot",
+        email : "kenil@gmail.com",
+        marks : [
+            {"name": "sub1", "total" : 121},
+            {"name": "sub2", "total" : 122},
+            {"name": "sub3", "total" : 123},
+        ],
+        getData : function(){
+            return "<hr>Welcome "+this.fname+" "+this.lname+" to "+this.city+" Your roll No. is "+this.roll+" marks is ("+this.marks[0].total+", "+this.marks[1].total+", "+this.marks[2].total+")";
+        }
+    }
+
+    document.write(student.getData());
+</script>

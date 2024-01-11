@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    /*
+        How to Display JavaScript Objects? Displaying a JavaScript object will output [object Object].     
+    */ 
+
+    const student = {
+        roll : 123,
+        fname : "Kenil",
+        lname : "Sangani",
+        city : "Rajkot",
+        email : "kenil@gmail.com",
+        marks : 177
+    };
+
+    document.write("<hr>"+Object.values(student));
+</script>

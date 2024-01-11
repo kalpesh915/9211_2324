@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    /*
+        Using the JavaScript Keyword new
+        The examples above do exactly the same. But there is no need to use new Object(). For readability, simplicity and execution speed, use the object literal method.
+
+    */ 
+
+
+    const student = new Object();
+        student.roll = 123;
+        student.fname = "Sujal";
+        student.lname = "Khachariya";
+        student.city = "Jetpur";
+        student.getData = function(){
+            return "<hr>"+this.roll+" "+this.fname+" "+this.lname+" "+this.city;
+        }
+
+    document.write("<hr>"+student);
+    document.write(student.getData());
+</script>
