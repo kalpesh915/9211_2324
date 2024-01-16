@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    const myObject = {
+        count : 10
+    }
+
+    document.write("<hr>"+myObject.count);
+
+    Object.defineProperty(myObject, "reset", {
+        get : function(){
+            this.count = 0;
+        }
+    });
+
+    Object.defineProperty(myObject, "increment", {
+        get : function(){
+            this.count += 1;
+        }
+    });
+
+    Object.defineProperty(myObject, "decrement", {
+        get : function(){
+            this.count -= 1;
+        }
+    });
+
+    Object.defineProperty(myObject, "add", {
+        set : function(value){
+            this.count += value;
+        }
+    });
+
+    Object.defineProperty(myObject, "less", {
+        set : function(value){
+            this.count -= value;
+        }
+    });
+
+    myObject.reset;
+    document.write("<hr>"+myObject.count);
+    myObject.increment;
+    myObject.increment;
+    myObject.increment;
+    myObject.increment;
+    myObject.increment;
+    document.write("<hr>"+myObject.count);
+    myObject.decrement;
+    myObject.decrement;
+    myObject.decrement;
+    myObject.decrement;
+    myObject.decrement;
+    document.write("<hr>"+myObject.count);
+
+    myObject.add = 100;
+    document.write("<hr>"+myObject.count);
+
+    myObject.less = 50;
+    document.write("<hr>"+myObject.count);
+</script>

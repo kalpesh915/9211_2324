@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    function Person(roll, fname, lname, city){
+        this.roll = roll;
+        this.fname = fname;
+        this.lname = lname;
+        this.city = city;
+        this.eyecolor = "Black";
+        this.getData = function(){
+            return "<hr>"+this.fname+" "+this.lname+" "+this.city+" "+this.roll+" "+this.eyecolor;
+        }
+    }
+
+    const person1 = new Person(111, "Kenil", "Sangani", "Rajkot");
+    const person2 = new Person(112, "Ridham", "Vishnuswami", "Rajkot");
+    const person3 = new Person(113, "Bhalabhai", "Bavaliya", "Rajkot");
+    const person4 = new Person(114, "Het", "Dadhaniya", "Rajkot");
+    const person5 = new Person(115, "Deepak", "Vavdiya", "Rajkot");
+
+    document.write(person1.getData());
+    document.write(person2.getData());
+    document.write(person3.getData());
+    document.write(person4.getData());
+    document.write(person5.getData());
+
+    
+
+</script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+
+    const students = new Map([
+        [1,"kenil"], 
+        [2,"ridham"], 
+        [3,"bhalabhai"],
+        [4,"het"],
+        [5,"dipak"],
+        [6,"sumit"],
+        [7,"het"]
+    ]);
+
+    document.write("<hr>"+students.get(1));
+    students.set(1, "het")
+    document.write("<hr>"+students.get(1));
+</script>
