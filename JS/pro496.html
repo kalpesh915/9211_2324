@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    const student = {};
+    console.log(student);
+    
+    let tmp = Object.create(student);
+    console.log(tmp);
+
+    // Define new property
+    Object.defineProperty(tmp, "count", {value : 10, enumerable: true});
+    Object.defineProperty(tmp, "year", {value : 2010, enumerable: true});
+    Object.defineProperty(tmp, "city", {value : "Rajkot", enumerable: true});
+    
+    Object.defineProperty(tmp, "getData", {
+        get : function(){
+            alert(this.count);
+        }
+    });
+    
+    tmp.getData;
+</script>

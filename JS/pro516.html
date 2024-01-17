@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    /*
+      Objects are Passed by Reference
+      In JavaScript, object references are values. Because of this, objects will behave like they are passed by reference: If a function changes an object property, it changes the original value. Changes to object properties are visible (reflected) outside the function.
+    */
+
+    let ip1 = {value : 10};
+
+    document.write("<hr> Before Function Call ip1 is "+ip1.value); // 10
+    add10(ip1);
+
+    function add10(ip1){ // ip1 is reference of ip1
+        ip1.value += 10; // global object
+        document.write("<hr> Between Function Call ip1 is "+ip1.value); // 20
+        // ip1 is is refernce for global ip1 object
+    }
+
+    document.write("<hr> After Function Call ip1 is "+ip1.value); // 20
+
+</script>

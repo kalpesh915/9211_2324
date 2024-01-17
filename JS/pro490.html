@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    const student = {};
+    console.log(student);
+    
+    let tmp = Object.create(student);
+    console.log(tmp);
+
+    // Define new property
+    Object.defineProperty(tmp, "count", {value : 10});
+    Object.defineProperty(tmp, "year", {value : 2010});
+    Object.defineProperty(tmp, "city", {value : "Rajkot"});
+    console.log(tmp);
+
+    // Descriptor
+    console.log(Object.getOwnPropertyDescriptor(tmp, "count"));
+
+    // names
+    console.log(Object.getOwnPropertyNames(tmp));
+
+    // prototype
+    console.log(Object.getPrototypeOf(tmp));
+    
+    // keys
+    console.log(Object.keys(tmp));
+</script>

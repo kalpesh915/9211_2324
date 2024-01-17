@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    /*
+        JavaScript Function Parameters
+        Parameter Rules
+        JavaScript function definitions do not specify data types for parameters. JavaScript functions do not perform type checking on the passed arguments. JavaScript functions do not check the number of arguments received.
+    */
+
+    function makeSum(i, j){ // i, j parameters
+        if(i == "" || i == undefined || isNaN(i) || i == null){
+            i = 0;
+        }
+        if(j == "" || j == undefined || isNaN(j) || j == null){
+            j = 0;
+        }
+        document.write(`<hr> value of i is ${i} and j is ${j} and Sum is ${i+j}`);
+    }
+
+    makeSum(11, 22, 33);
+    makeSum(11, 22); // 11, 22 arguments
+    makeSum(11);
+    makeSum();
+</script>
