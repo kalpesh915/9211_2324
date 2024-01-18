@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    /*
+        JavaScript variables can belong to the local or global scope.
+        Global variables can be made local (private) with closures.
+    */
+
+    x = 10; // autometic global variable
+    function msg() {
+        document.write("<hr> value of x is "+x);
+    }
+
+    msg();
+
+    /*
+        Variable Lifetime
+        Global variables live until the page is discarded, like when you navigate to another page or close the window.
+        Local variables have short lives. They are created when the function is invoked, and deleted when the function is finished.
+    */ 
+</script>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    /*
+        Function Borrowing
+        With the bind() method, an object can borrow a method from another object.
+        The example below creates 2 objects (person and member).
+    */
+
+    const person = {
+        fname : "Ridham",
+        lname : "Vishnuswami",
+        getData : function(){
+            document.getElementById("op").innerHTML = this.fname+" "+this.lname;
+        }
+    }
+
+    const member = {
+        fname : "Bhalabhai",
+        lname : "Bavaliya"
+    }
+
+    person.getData();
+</script>

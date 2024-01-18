@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    /*
+        The Difference Between call() and apply()
+        The difference is:
+        The call() method takes arguments separately.
+        The apply() method takes arguments as an array.
+    */
+
+    const person = {
+        fullname : function(city, state){
+            return "Welcome "+this.fname+" "+this.lname+" to "+city+" of " +state;
+        }
+    }
+
+    const person1 = {
+        fname : "Kenil",
+        lname : "Sangani"
+    }
+
+    const person2 = {
+        fname : "Sumit",
+        lname : "Talsaniya"
+    }
+
+    const person3 = {
+        fname : "Dipak",
+        lname : "Vavdiya"
+    }
+
+    //document.write("<hr>"+person1.fullname());
+    document.write("<hr>"+person.fullname.apply(person1, ["Rajkot", "Gujarat"]));
+    document.write("<hr>"+person.fullname.apply(person2, ["Rajkot", "Gujarat"]));
+    document.write("<hr>"+person.fullname.apply(person3, ["Rajkot", "Gujarat"]));
+</script>

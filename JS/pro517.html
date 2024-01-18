@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    /*
+        Method Reuse
+        With the call() method, you can write a method that can be used on different objects. 
+
+        All Functions are Methods
+        In JavaScript all functions are object methods. If a function is not a method of a JavaScript object, it is a function of the global object (see previous chapter). 
+    */
+
+    const person = {
+        fname : "Kenil",
+        lname : "Sangani",
+        fullname : function(){
+            return this.fname+" "+this.lname
+        }
+    }
+
+    document.write("<hr>"+person.fullname());
+
+</script>
