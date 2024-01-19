@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+
+</html>
+
+<script>
+    /*
+        The super() method refers to the parent class.
+        By calling the super() method in the constructor method, we call the parent's constructor method and gets access to the parent's properties and methods.
+    */
+
+    class Car{
+        constructor(brand, country){
+            this.brand = brand;
+            this.country = country;
+        }
+
+        getOrigin(){
+            return this.brand+" from "+this.country;
+        }
+    }
+
+    // IS - A Relationship
+    class Modal extends Car{
+        constructor(brand, country, modelname, fuel, seating){
+            super(brand, country);
+
+            this.modelname = modelname;
+            this.fuel = fuel;
+            this.seating = seating;
+        }
+
+        intro(){
+            return "<hr> Hello i am "+this.modelname+" fuel is "+this.fuel+" Searing Capacity is "+this.seating+" Origin "+this.getOrigin();
+        }
+    }
+
+    const car1 = new Modal("Mahindra", "India", "Scorpio NX", "Diesel", 8);
+    const car2 = new Modal("I20", "South Corea", "NX", "Petrol", 5);
+    
+    document.write(car1.intro());
+    document.write(car2.intro());
+</script>

@@ -8,28 +8,20 @@
 </head>
 
 <body>
-    <h1 id="op"></h1>
 </body>
 
 </html>
 
 <script>
-    /*
-        JavaScript Closures Remember self-invoking functions? What does this function do?
-    */
-    const add = (function(){
-        let counter = 0;
-        return function(){
-            counter++;
-            return counter;
+    class Student{
+        constructor(roll, fname, lname, city){
+            this.roll = roll;
+            this.fname = fname;
+            this.lname = lname;
+            this.city = city;
         }
-    })();
+    }
 
-
-
-    document.write("<hr> Before add counter is "+add());
-    document.write("<hr> Before add counter is "+add());
-    document.write("<hr> Before add counter is "+add());
-    document.write("<hr> Before add counter is "+add());
-    document.write("<hr> Before add counter is "+add());
+    const stduent1 = new Student(111, "Khushi", "Thakar", "Chotila");
+    const stduent2 = new Student(112, "Sumit", "Talsaniya", "Rajkot");
 </script>

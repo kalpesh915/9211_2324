@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+
+</html>
+
+<script>
+    /*
+        Class Inheritance
+        To create a class inheritance, use the extends keyword.
+        A class created with a class inheritance inherits all the methods from another class:
+    */
+
+    /// Parent / Super Class
+    class Math1{
+        constructor(){
+
+        }
+        sum(i, j){
+            document.write("<hr> Sum is " + (i + j));
+        }
+        sub(i, j){
+            document.write("<hr> Sub is " + (i - j));
+        }
+    }
+
+    // Child / Sub class
+    class Math2 extends Math1{
+        constructor(){
+            super();
+        }
+        div(i, j){
+            document.write("<hr> Div is " + (i / j));
+        }
+        mul(i, j){
+            document.write("<hr> Mul is " + (i * j));
+        }
+    }
+
+    m2 = new Math2();
+
+    m2.sum(111, 22);
+    m2.sub(111, 22);
+    m2.mul(111, 22);
+    m2.div(111, 22);
+</script>
