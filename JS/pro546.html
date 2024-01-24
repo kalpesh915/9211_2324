@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="op"></p>
+</body>
+
+</html>
+
+<script>
+    /*
+        Sequence Control
+        Sometimes you would like to have better control over when to execute a function.
+    */
+
+    function printer(value) {
+        document.getElementById("op").innerHTML = value;
+    }
+
+    function makeSum(i, j, callback){
+        let ans = i + j;
+        callback(ans); // step 2
+    }
+
+    makeSum(11, 22, printer);  // step 1
+    
+</script>

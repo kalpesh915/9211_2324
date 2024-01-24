@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="op"></p>
+</body>
+
+</html>
+
+<script>
+    /*
+        call back function for remove negative values
+    */
+
+    let data= [11, 22, 33, -34, 11, 34, -45, 33, 43, -45, -34, -67];
+
+    document.write("<hr> Original Array is "+data);
+
+    let ans = removeNegative(data, (x) => x >= 0);
+
+    document.write("<hr> Answer Array is "+ans);
+    
+
+    function removeNegative(values, callback){
+        let ans = [];
+
+        for(let tmp of values){
+            //alert("ok");
+            if(callback(tmp)){
+                ans.push(tmp);
+            }
+        }
+
+        return ans;
+    }
+</script>

@@ -1,0 +1,3 @@
+<h1>Welcome to AJAx Loading</h1>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum ratione sunt numquam itaque provident, corporis aliquam perspiciatis mollitia, officia eos id, ducimus repellendus animi dolores quod maiores adipisci cum nesciunt.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur accusantium commodi maxime, illo quibusdam ut, rerum fuga optio magnam adipisci odit cum nisi quidem voluptate deserunt laborum perferendis magni asperiores!</p>

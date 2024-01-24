@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="op"></p>
+</body>
+
+</html>
+
+<script>
+    /*
+        "I will finish later!"
+        Functions running in parallel with other functions are called asynchronous A good example is JavaScript setTimeout()
+    */
+
+    setInterval(function(){
+        document.getElementById("op").innerHTML = Date();
+    }, 1000);
+
+    /*
+        Callback Alternatives
+        With asynchronous programming, JavaScript programs can start long-running tasks, and continue running other tasks in paralell.
+        But, asynchronus programmes are difficult to write and difficult to debug.
+        Because of this, most modern asynchronous JavaScript methods don't use callbacks. Instead, in JavaScript, asynchronous programming is solved using Promises instead.
+    */ 
+</script>
