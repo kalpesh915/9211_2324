@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="op"></h1>
+    <hr>
+    <button onclick="startTimer()">Start Timer</button>
+    <button onclick="stopTimer()">Stop Timer</button>
+</body>
+</html>
+
+<script>
+    let op = document.getElementById("op");
+    let animation = null;
+
+    function startTimer(){
+        if(animation == null){
+            animation = setInterval(printTime, 1000);
+        }
+    }
+    
+    function stopTimer(){
+        if(animation != null){
+            clearInterval(animation);
+            animation = null;
+        }
+    }
+
+    function printTime(){
+        let today = new Date();
+        op.innerHTML = today;
+    }
+    
+
+</script>
