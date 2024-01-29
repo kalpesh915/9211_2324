@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Document</title>
+    <style>
+        #op{
+            background-color: orangered;
+            color: white;
+            padding: 10px;
+            width: 150px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="op" onclick="events()">Click Me</div>
+</body>
+</html>
+
+<script>
+    let op = document.getElementById("op");
+    let count = 0;
+
+    function events(){
+        if(count == 0){
+            op.innerHTML = op.innerHTML + " <br>Click Me Again"
+            count++;
+        }else if(count == 1){
+            op.innerHTML = "Thank You";
+            count++;
+        }else if(count == 2){
+            op.innerHTML = "Good Bye";
+            count++;
+        }else if(count == 3){
+            op.style.display = "none";
+        }
+    }
+</script>

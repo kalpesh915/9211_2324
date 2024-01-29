@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Document</title>
+</head>
+<body>
+    <input type="password" id="upass" placeholder="Enter Password"> <button onmouseover="show()" onmouseout="hide()">Show</button>
+</body>
+</html>
+
+<script>
+    function show(){
+        document.getElementById("upass").type="text";
+    }
+
+    function hide(){
+        document.getElementById("upass").type="password";
+    }
+</script>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Document</title>
+</head>
+<body>
+    <h1 id="op">Press Button to Get Current Time</h1>
+    <button onclick="getCurrentTime()">Click Me</button>
+</body>
+</html>
+
+<script>
+    function getCurrentTime(){
+        document.getElementById("op").innerHTML = Date();
+    }
+</script>

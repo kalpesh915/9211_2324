@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Document</title>
+</head>
+<body>
+    <input type="range" min="100" max="500" step="10" onchange="resizePhoto(this.value)">
+    <hr>
+    <img src="../images/pic_bulbon.gif" id="img1">
+</body>
+</html>
+
+<script>
+    let img1 = document.getElementById("img1");
+
+    function resizePhoto(size){
+        img1.style.width = size+"px";
+        img1.style.height = size+"px";
+    }
+ 
+</script>

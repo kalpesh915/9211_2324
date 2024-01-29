@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Document</title>
+</head>
+<body>
+    <select onchange="changeFontSize(this.value)">
+        <option>10</option>
+        <option>15</option>
+        <option>20</option>
+        <option>25</option>
+        <option>30</option>
+        <option>35</option>
+        <option>40</option>
+        <option>45</option>
+        <option>50</option>
+    </select>
+
+    <hr>
+    <p id="op">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta magni cumque deleniti doloribus sint ea consequatur cupiditate illo earum minima! Laudantium adipisci, earum similique asperiores facere quisquam eius voluptatum alias. Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque neque nisi voluptates cupiditate in, magni omnis consectetur similique qui aliquam cumque, nesciunt unde expedita consequatur. Fugit neque magnam sapiente totam? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic, pariatur expedita debitis, exercitationem ipsa eius nulla quia architecto eaque aspernatur nobis qui! Repellat quidem impedit distinctio voluptatem placeat autem iure? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo sequi illo quidem adipisci. Doloribus quasi esse doloremque eum magnam odio, dolores labore perferendis nesciunt quo quia numquam voluptatibus nobis. Vero? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde voluptatem porro, quod, voluptate blanditiis quasi ullam assumenda itaque laudantium non quae eos autem et dolore maiores, aspernatur voluptatibus ipsum sit?</p>
+</body>
+</html>
+
+<script>
+    let op = document.getElementById("op");
+
+    function changeFontSize(size){
+        op.style.fontSize = size+"px";
+    }
+</script>
