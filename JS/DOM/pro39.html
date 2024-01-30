@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Document</title>
+    <style>
+        div{
+            border: 1px solid red;
+            padding: 10px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="myDiv">
+        <p id="p1">First P Tag Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore totam eos mollitia incidunt praesentium quisquam quis velit! Labore, at, sunt rerum quia, mollitia dolor sint cumque delectus repudiandae ipsam officia.</p>
+        <p id="p2">Second P Tag Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore totam eos mollitia incidunt praesentium quisquam quis velit! Labore, at, sunt rerum quia, mollitia dolor sint cumque delectus repudiandae ipsam officia.</p>
+    </div>
+
+    <hr>
+    <button onclick="addElement()">Add Element</button>
+</body>
+</html>
+
+<script>
+    let myDiv = document.getElementById("myDiv");
+    let p1 = document.getElementById("p1");
+    let p2 = document.getElementById("p2");
+
+    function addElement(){
+        // add new p tag to div
+        myDiv.removeChild(p2);
+    }
+</script>
