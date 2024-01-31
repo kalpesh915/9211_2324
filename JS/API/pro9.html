@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="op">Click Button to Get Location</h1>
+    <button onclick="getLocation()">Get Location</button>
+</body>
+</html>
+
+<script>
+    function getLocation(){
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(printer, errors);
+        }else{
+            alert("Location not available in your browser");
+        }
+    }
+
+    function printer(currentLocation){
+        document.getElementById("op").innerHTML = " Latitude "+currentLocation.coords.latitude + " Longitude "+currentLocation.coords.longitude;
+    }
+
+    function errors(error){
+        let op = document.getElementById("op");
+        //op.innerHTML = err
+        //op.innerHTML = err.code;
+
+        switch(error.code){
+            case error.PERMISSION_DENIED:{
+                op.innerHTML = "User Denided to give persmission of Location";
+                break;
+            }
+            case error.POSITION_UNAVAILABLE:{
+                op.innerHTML = "Geo Location Not Available in Browser";
+                break;
+            }
+            case error.POSITION_TIMEOUT:{
+                op.innerHTML = "Too much time to get Geo Location";
+                break;
+            }
+            case error.UNKNOWN_ERROR:{
+                op.innerHTML = "Geo Location Error";
+                break;
+            }
+            
+        }
+    }
+</script>

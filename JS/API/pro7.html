@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="op">The Worker Object</h1>
+
+    <button onclick="startWork()">Start Work</button>
+    <button onclick="stopWork()">Stop Work</button>
+</body>
+</html>
+
+<script>
+    let myWorker =  undefined;
+    let op = document.getElementById("op");
+    function startWork(){
+        if(typeof(myWorker) == "undefined"){
+            myWorker = new Worker("work.js");
+        }
+
+        myWorker.onmessage = function(event){
+            op.innerHTML = event.data;
+        }
+    }
+
+    function stopWork(){
+        myWorker.terminate();
+        myWorker = undefined;
+    }
+</script>

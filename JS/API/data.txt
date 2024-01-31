@@ -1,0 +1,6 @@
+<h1>Fetch API Example</h1>
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas inventore iusto quis. Architecto possimus sequi enim laudantium amet voluptatibus, perspiciatis recusandae aperiam vitae hic facere? Necessitatibus dicta hic quo excepturi?</p>
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas inventore iusto quis. Architecto possimus sequi enim laudantium amet voluptatibus, perspiciatis recusandae aperiam vitae hic facere? Necessitatibus dicta hic quo excepturi?</p>
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas inventore iusto quis. Architecto possimus sequi enim laudantium amet voluptatibus, perspiciatis recusandae aperiam vitae hic facere? Necessitatibus dicta hic quo excepturi?</p>
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas inventore iusto quis. Architecto possimus sequi enim laudantium amet voluptatibus, perspiciatis recusandae aperiam vitae hic facere? Necessitatibus dicta hic quo excepturi?</p>
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas inventore iusto quis. Architecto possimus sequi enim laudantium amet voluptatibus, perspiciatis recusandae aperiam vitae hic facere? Necessitatibus dicta hic quo excepturi?</p>

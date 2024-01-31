@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" name="age" id="age" required min="0" max="125" step="1">
+    <button onclick="validate()">Validate</button>
+    <h1 id="op"></h1>
+</body>
+</html>
+
+<script>
+    let data = document.getElementById("age");
+    let op = document.getElementById("op");
+    function validate(){
+        if(data.validity.rangeOverflow){
+            op.innerHTML = "Age is Above Valid Range"
+        }else if(data.validity.rangeUnderflow){
+            op.innerHTML = "Age is Below Valid Range"
+        }else if(data.validity.stepMismatch){
+            op.innerHTML = "Age step not valid"
+        }
+        else if(!data.checkValidity()){
+            op.innerHTML = data.validationMessage;
+        }
+    }
+</script>
