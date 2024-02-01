@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias voluptas quia a cumque quis repellendus amet, veniam corporis id consequatur quod, optio provident animi quam dolore ad obcaecati eum dolorem? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus impedit architecto necessitatibus velit, quasi, provident officiis veritatis cum sint quas veniam, doloribus unde assumenda itaque exercitationem facere vel reiciendis earum.</p>
+    <div id="op"></div>
+    <hr>
+    <button onclick="getData()">Load Data</button>
+</body>
+</html>
+
+<script>
+    function getData(){
+        // create a object of XMLHttpRequest() to generate custom HTTP Request to server
+        const obj = new XMLHttpRequest();
+
+        // open request for get data with GET method on data.txt file
+        obj.open("GET", "data.txt");
+
+        // check for response
+        obj.onload = function(){
+            // if response code = 200 then response received from server
+            if(obj.status == 200){
+                console.log(obj.getAllResponseHeaders());
+            }
+        }
+
+
+        // send the request
+        obj.send();
+    }
+</script>
