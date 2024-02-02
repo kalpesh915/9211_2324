@@ -1,0 +1,11 @@
+{
+    "studenents" : [
+        {"roll" : 121, "fname" : "Kenil", "lname" : "Sangani", "city" : "Rajkot"},
+        {"roll" : 122, "fname" : "Ridham", "lname" : "Vishnuswami", "city" : "Rajkot"},
+        {"roll" : 123, "fname" : "Riya", "lname" : "Barad", "city" : "Rajkot"},
+        {"roll" : 124, "fname" : "Khushi", "lname" : "Thakar", "city" : "Rajkot"},
+        {"roll" : 125, "fname" : "Deepak", "lname" : "Vavdiya", "city" : "Rajkot"},
+        {"roll" : 126, "fname" : "Sumit", "lname" : "Talsaniya", "city" : "Rajkot"},
+        {"roll" : 127, "fname" : "Bhalabhai", "lname" : "Bavaliya", "city" : "Rajkot"}
+    ]
+}

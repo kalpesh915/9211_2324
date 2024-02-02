@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    const JSONData = '{"students" : {"roll":123, "fname": "Sumit", "lname":"Talsaniya", "marks":[11, 22, 33, 44, 55], "married":false, "car":null}}';
+
+    document.write("<hr>"+JSONData);
+
+    // convert JSONData to JS Object
+
+    // Parse the data with JSON.parse(), and the data becomes a JavaScript object.
+
+    const JSObject = JSON.parse(JSONData);
+
+    document.write("<hr>"+JSObject);
+    document.write("<hr>"+JSObject.students);
+    document.write("<hr>"+JSObject.students.fname);
+    document.write("<hr>"+JSObject.students.marks);
+    document.write("<hr>"+JSObject.students.marks[0]);
+</script>

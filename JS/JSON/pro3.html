@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    const JSObject = {
+        students : [
+            {
+                roll : 123,
+                fname : "Riya",
+                lname : "Barad"
+            },
+            {
+                roll : 124,
+                fname : "Khushi",
+                lname : "Thakar"
+            },
+            {
+                roll : 125,
+                fname : "Hetvi",
+                lname : "Maheshwari"
+            },
+        ]
+    }
+
+    document.write("<hr>"+JSObject);
+    document.write("<hr>"+JSObject.students);
+    document.write("<hr>"+JSObject.students[0]);
+    document.write("<hr>"+JSObject.students[0].fname);
+
+    // Convert a JavaScript object into a string with JSON.stringify().
+    document.write("<hr>"+JSON.stringify(JSObject))
+</script>
