@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+
+    <style>
+        .demo{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">Hide</button>
+    <hr>
+    <p id="p1">ID P1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, vel? Provident dolorem consequatur, vero pariatur nisi repellendus amet porro. Non fugiat consequuntur aspernatur reiciendis? Sit, iste. Nesciunt voluptates laborum quas.</p>
+    <p class="demo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, vel? Provident dolorem consequatur, vero pariatur nisi repellendus amet porro. Non fugiat consequuntur aspernatur reiciendis? Sit, iste. Nesciunt voluptates laborum quas.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, vel? Provident dolorem consequatur, vero pariatur nisi repellendus amet porro. Non fugiat consequuntur aspernatur reiciendis? Sit, iste. Nesciunt voluptates laborum quas.</p>
+    <p class="demo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, vel? Provident dolorem consequatur, vero pariatur nisi repellendus amet porro. Non fugiat consequuntur aspernatur reiciendis? Sit, iste. Nesciunt voluptates laborum quas.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, vel? Provident dolorem consequatur, vero pariatur nisi repellendus amet porro. Non fugiat consequuntur aspernatur reiciendis? Sit, iste. Nesciunt voluptates laborum quas.</p>
+    <p class="demo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, vel? Provident dolorem consequatur, vero pariatur nisi repellendus amet porro. Non fugiat consequuntur aspernatur reiciendis? Sit, iste. Nesciunt voluptates laborum quas.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, vel? Provident dolorem consequatur, vero pariatur nisi repellendus amet porro. Non fugiat consequuntur aspernatur reiciendis? Sit, iste. Nesciunt voluptates laborum quas.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, vel? Provident dolorem consequatur, vero pariatur nisi repellendus amet porro. Non fugiat consequuntur aspernatur reiciendis? Sit, iste. Nesciunt voluptates laborum quas.</p>
+    <p class="demo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, vel? Provident dolorem consequatur, vero pariatur nisi repellendus amet porro. Non fugiat consequuntur aspernatur reiciendis? Sit, iste. Nesciunt voluptates laborum quas.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, vel? Provident dolorem consequatur, vero pariatur nisi repellendus amet porro. Non fugiat consequuntur aspernatur reiciendis? Sit, iste. Nesciunt voluptates laborum quas.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, vel? Provident dolorem consequatur, vero pariatur nisi repellendus amet porro. Non fugiat consequuntur aspernatur reiciendis? Sit, iste. Nesciunt voluptates laborum quas.</p>
+    <h1 class="demo">This is heading</h1>    
+</body>
+</html>
+
+<script>
+    $(document).ready(function(){
+        $("#btn1").click(function(){
+            $(".demo").hide(3000);
+        });
+    });
+</script>

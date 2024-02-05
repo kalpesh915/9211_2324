@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="jquery.color.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <input type="password" id="upass">
+    <button id="btn1">Show</button>
+</body>
+</html>
+
+<script>
+    $(document).ready(function(){
+        $("#upass").focus(function(){
+            $(this).css({
+                backgroundColor:"green",
+                color : "white"
+            });
+        });
+
+        $("#upass").blur(function(){
+            $(this).css({
+                backgroundColor:"orange",
+                color : "white"
+            });
+        });
+    });
+</script>

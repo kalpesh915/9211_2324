@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <button onclick="hideText()">Hide</button>
+    <button onclick="showText()">Show</button>
+    <h1>Traditional Java Script</h1>
+    <p id="op">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias ad dolore laudantium minus cum sit soluta cupiditate accusamus nemo ex, pariatur beatae temporibus veniam asperiores, voluptate aliquid commodi earum vero? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis sit, eum laborum cupiditate esse distinctio ut minus reprehenderit? Ratione impedit officia ab esse ullam laudantium illum at? Magni, accusantium soluta! Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat repellat explicabo temporibus. Esse quaerat magni nobis minima, sunt quo. Natus iusto numquam sunt. Delectus mollitia culpa molestiae exercitationem tempora modi.</p>
+</body>
+</html>
+
+<script>
+    function hideText(){
+        document.getElementById("op").style.display = "none";
+    }
+
+    function showText(){
+        document.getElementById("op").style.display = "block";
+    }
+</script>
