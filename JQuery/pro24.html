@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="jquery.color.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <button id="btn1">Show</button>
+    <button id="btn2">Hide</button>
+    <hr>
+    <p id="op">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, nihil ducimus! Magni assumenda, cumque, magnam distinctio pariatur veniam rem eum repellendus id perferendis, vel sed. Distinctio sunt provident doloremque harum. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio iste ab necessitatibus aspernatur quam at harum ex accusantium excepturi consequuntur ea, ipsa, architecto nam dolor libero tenetur repudiandae. Eos, voluptates. Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, officiis? Perferendis ipsa doloribus architecto aliquam aspernatur. Optio voluptas corrupti mollitia hic, exercitationem officiis atque laboriosam nobis fuga temporibus cupiditate pariatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam repellendus vero adipisci saepe cupiditate dolore a porro reprehenderit blanditiis obcaecati odit quia, eaque laborum est optio atque, animi ipsum autem. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero, iste corrupti. Placeat voluptate culpa vero fuga necessitatibus voluptas accusantium rem ratione non. In quae eligendi deleniti magni, eveniet asperiores blanditiis!</p>
+</body>
+</html>
+
+<script>
+    $(document).ready(function(){
+        $("#btn1").click(function(){
+            $("#op").show("slow");
+        });        
+        $("#btn2").click(function(){
+            $("#op").hide("slow");
+        });        
+    });
+</script>
