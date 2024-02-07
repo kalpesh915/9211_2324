@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="jquery.color.js"></script>
+    <style>
+
+        .demo{
+            color: red;
+            background-color: yellow;
+            padding: 20px;
+        }
+
+        .center{
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <button id="btn1">Add Class</button>
+    <button id="btn2">Remove Class</button>
+    <button id="btn3">Toggle Class</button>
+    <hr>
+    <h1 id="op">Welcome to jquery</h1>
+    
+</body>
+</html>
+
+<script>
+    $(document).ready(function(){
+        $("#btn1").click(function(){
+            $("#op").addClass("demo center");
+        });        
+
+        $("#btn2").click(function(){
+            $("#op").removeClass("demo center");
+        });
+        
+        $("#btn3").click(function(){
+            $("#op").toggleClass("demo center");
+        });        
+    });
+</script>

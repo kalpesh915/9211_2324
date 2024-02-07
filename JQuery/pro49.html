@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="jquery.color.js"></script>
+    <style>
+        #op{
+            background-color: black;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">Append Content</button>
+    <button id="btn2">Prepend Content</button>
+    <hr>
+    <p id="op">Welcome to jquery</p>
+
+</body>
+</html>
+
+<script>
+    $(document).ready(function(){
+        $("#btn1").click(function(){
+            $("#op").append(" new Text");
+        });        
+        $("#btn2").click(function(){
+            $("#op").prepend(" new Text");
+        });        
+    });
+</script>

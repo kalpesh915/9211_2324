@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="jquery.color.js"></script>
+    <style>
+        #op{
+            background-color: black;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">Get Link</button>
+    <button id="btn2">Set Link</button>
+    <hr>
+    <a href="https://www.google.com" id="link1">Open Link</a>
+
+</body>
+</html>
+
+<script>
+    /*
+    
+    */ 
+    $(document).ready(function(){
+        $("#btn1").click(function(){
+            alert($("#link1").attr("href"));
+        });        
+        
+        $("#btn2").click(function(){
+            $("#link1").attr({"href": "https://www.instagram.com"});
+        });
+    });
+</script>
