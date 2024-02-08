@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="jquery.color.js"></script>
+    <style>
+        .container{
+            overflow: auto;
+        }
+
+        *{
+            box-sizing: border-box;
+        }
+
+        table, td, th {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        table{
+            width: 100%;
+        }
+
+        .search{
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="search" id="search" placeholder="Search Here..." class="search">
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Roll</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>City</th>
+                </tr>
+            </thead>
+
+            <tbody id="mydata">
+                <tr>
+                    <td>1</td>
+                    <td>Sujal</td>
+                    <td>Khachariya</td>
+                    <td>Jetpur</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Bhalabhai</td>
+                    <td>Bavaliya</td>
+                    <td>Limdi</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Hetvi</td>
+                    <td>Kela</td>
+                    <td>Morbi</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Ridham</td>
+                    <td>Vishnuswami</td>
+                    <td>Rajkot</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Kenil</td>
+                    <td>Sangani</td>
+                    <td>Baroda</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Sumit</td>
+                    <td>Talsaniya</td>
+                    <td>Jsadan</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Riya</td>
+                    <td>Barad</td>
+                    <td>Ahamdabad</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Khushi</td>
+                    <td>Thakar</td>
+                    <td>Chotila</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Dipak</td>
+                    <td>Vavdiya</td>
+                    <td>Gondal</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Hasti</td>
+                    <td>Vala</td>
+                    <td>Rajkot</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
+
+<script>
+
+    $(document).ready(function () {
+        $("#search").keyup(function(){
+            const searchText = $(this).val().toLowerCase();
+            //alert(searchText);
+
+            $("#mydata tr").filter(function(){
+                $(this).toggle($(this).text().toLowerCase().indexOf(searchText) > -1);
+            });
+        });
+    });
+</script>

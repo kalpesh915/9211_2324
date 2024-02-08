@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="jquery.color.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <button id="btn1">Hide</button>
+    <button id="btn2">Show</button>
+    <hr>
+    <p id="op">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur rerum adipisci saepe, ratione facere nisi consectetur cumque! Inventore alias quas voluptatem dolor pariatur veniam laudantium, natus laborum officia omnis obcaecati. Lorem ipsum dolor sit amet consectetur adipisicing elit. Est tenetur corporis architecto labore tempore saepe quas qui! Placeat aperiam non magni cupiditate voluptatum adipisci soluta? Error optio eius voluptate ullam. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus mollitia vero optio, eum harum eligendi accusamus rerum fuga nihil expedita adipisci ut! Deleniti autem expedita numquam reiciendis recusandae, eum dignissimos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus voluptates aliquid provident cumque iste aliquam labore? Sequi vitae dignissimos numquam ducimus quidem, culpa libero, omnis deserunt aut quos aspernatur optio. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores iste delectus quibusdam nostrum, quod eum veniam! Illo minima ipsum ab repellat, consequuntur, non ipsa voluptates impedit velit aliquam nostrum similique?</p>
+</body>
+</html>
+
+<script>
+    /*
+        You can also create your own shortcut very easily. The noConflict() method returns a reference to jQuery, that you can save in a variable, for later use.
+    */ 
+
+    const jq = $.noConflict();
+    jq(document).ready(function () {
+        jq("#btn1").click(function(){
+            jq("#op").hide(3000);
+        });
+
+        jq("#btn2").click(function(){
+            jq("#op").show(3000);
+        });
+    });
+</script>

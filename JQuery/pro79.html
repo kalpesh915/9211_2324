@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="jquery.color.js"></script>
+    <style>
+        .ancestors *{
+            background-color: white;
+            border: 3px solid gray;
+            padding: 10px;
+            box-sizing: border-box;
+            display: block;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>This is Heading 1</h1>
+    <h2>This is Heading 2</h2>
+    <h3>This is Heading 3</h3>
+    <h4>This is Heading 4</h4>
+    <h5>This is Heading 5</h5>
+    <h6>This is Heading 6</h6>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam molestiae a alias ducimus aspernatur laboriosam necessitatibus reprehenderit, autem quaerat molestias beatae maiores enim voluptates. Odit, adipisci placeat! Aliquid, temporibus soluta!</p>
+</body>
+</html>
+
+<script>
+
+    $(document).ready(function(){
+        /*
+            With jQuery you can traverse sideways in the DOM tree to find siblings of an element.Siblings share the same parent.   
+            The nextUntil() method returns all next sibling elements between two given arguments.
+        */ 
+        $("h3").nextUntil("p").css({
+            "color" : "red"
+        });        
+    });
+</script>

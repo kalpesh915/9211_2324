@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="jquery.color.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <button id="btn1">Hide</button>
+    <button id="btn2">Show</button>
+    <hr>
+    <p id="op">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur rerum adipisci saepe, ratione facere nisi consectetur cumque! Inventore alias quas voluptatem dolor pariatur veniam laudantium, natus laborum officia omnis obcaecati. Lorem ipsum dolor sit amet consectetur adipisicing elit. Est tenetur corporis architecto labore tempore saepe quas qui! Placeat aperiam non magni cupiditate voluptatum adipisci soluta? Error optio eius voluptate ullam. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus mollitia vero optio, eum harum eligendi accusamus rerum fuga nihil expedita adipisci ut! Deleniti autem expedita numquam reiciendis recusandae, eum dignissimos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus voluptates aliquid provident cumque iste aliquam labore? Sequi vitae dignissimos numquam ducimus quidem, culpa libero, omnis deserunt aut quos aspernatur optio. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores iste delectus quibusdam nostrum, quod eum veniam! Illo minima ipsum ab repellat, consequuntur, non ipsa voluptates impedit velit aliquam nostrum similique?</p>
+</body>
+</html>
+
+<script>
+    /*
+        The jQuery noConflict() Method
+        The noConflict() method releases the hold on the $ shortcut identifier, so that other scripts can use it.
+        You can of course still use jQuery, simply by writing the full name instead of the shortcut:
+    */ 
+
+    $.noConflict();
+    jQuery(document).ready(function () {
+        jQuery("#btn1").click(function(){
+            jQuery("#op").hide(3000);
+        });
+
+        jQuery("#btn2").click(function(){
+            jQuery("#op").show(3000);
+        });
+    });
+</script>
