@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="jquery.color.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <button id="btn1">Add New Data</button>
+    <button id="btn2">Get All Data</button>
+</body>
+</html>
+
+<script>
+    /*
+        create JSON Server for testing purpose
+        
+        1   must install Node JS
+        2   open command prompt
+        3   npm install json-server -g
+            * run above command only first time for install json-server
+        4   json-server --watch mydata.json (create mydata.json) run on server
+        5   open mydata.json file in vscode (remove all data and create new API)
+        6   open browser and go to localhost:3000
+    */ 
+    $(document).ready(function ($) {
+        $("#btn1").click(function(){
+            let fname = prompt("Enter First Name");
+            let lname = prompt("Enter Last Name");
+
+            $.post("http://localhost:3000/students",{"fname" :fname, "lname": lname}, 
+            function(data, status){
+                if(status == "success"){
+                    console.log("New Record Created");
+                }else{
+                    console.error("Error while inserting new data");
+                }
+            });
+        });
+
+        $("#btn2").click(function(){
+            $.get("http://localhost:3000/students", function(data, status){
+                if(status == "success"){
+                    console.log(data);
+                }else{
+                    console.error("No data Found");
+                }
+            });
+        });
+    });
+</script>
