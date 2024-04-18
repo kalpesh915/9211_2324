@@ -1,5 +1,7 @@
 <!-- 
-    BootStrap PHP MYSQL Pagination
+    Select and Filter Data From a MySQL Database
+    The WHERE clause is used to filter records.
+    The WHERE clause is used to extract only those records that fulfill a specified condition.
  -->
 
 <?php
@@ -66,10 +68,14 @@ try {
 
             <tbody>
                 <?php
-                 try {
-           
+               
+                try {
+               
                         $offset = $page * $pagesize;
-                        $sqlquery = "select * from students limit $pagesize offset $offset";
+                        //$sqlquery = "select * from students limit $pagesize offset $offset";
+                        //$sqlquery = "select * from students where city = 'rajkot' limit $pagesize offset $offset";
+                        //$sqlquery = "select * from students where roll > 100 limit $pagesize offset $offset";
+                        $sqlquery = "select * from students where not city = 'Rajkot' limit $pagesize offset $offset";
 
                         // get result 
                         $result = $connection->query($sqlquery);
@@ -104,7 +110,7 @@ try {
         <ul class="pagination justify-content-center">
             <?php
                 for($x=0; $x<$pages; $x++){
-                    echo "<li class='page-item'><a class='page-link' href='pro17.php?page=$x'>".($x+1)."</a></li>";
+                    echo "<li class='page-item'><a class='page-link' href='pro18.php?page=$x'>".($x+1)."</a></li>";
                 }
             ?>
             

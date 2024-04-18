@@ -1,5 +1,7 @@
 <!-- 
-    BootStrap PHP MYSQL Pagination
+    Select and Order Data From a MySQL Database
+    The ORDER BY clause is used to sort the result-set in ascending or descending order.
+    The ORDER BY clause sorts the records in ascending order by default. To sort the records in descending order, use the DESC keyword.
  -->
 
 <?php
@@ -66,11 +68,12 @@ try {
 
             <tbody>
                 <?php
-                 try {
-           
+          
+                try {
                         $offset = $page * $pagesize;
-                        $sqlquery = "select * from students limit $pagesize offset $offset";
-
+                        //$sqlquery = "select * from students order by fname limit $pagesize offset $offset";
+                        $sqlquery = "select * from students order by fname desc limit $pagesize offset $offset";
+                        
                         // get result 
                         $result = $connection->query($sqlquery);
 
@@ -92,7 +95,6 @@ try {
                         } else {
                             echo "<hr>No Data Found in Table<hr>";
                         }
-                    
                 } catch (Exception $err) {
                     echo "<hr> Error is $err";
                 } finally {
@@ -104,7 +106,7 @@ try {
         <ul class="pagination justify-content-center">
             <?php
                 for($x=0; $x<$pages; $x++){
-                    echo "<li class='page-item'><a class='page-link' href='pro17.php?page=$x'>".($x+1)."</a></li>";
+                    echo "<li class='page-item'><a class='page-link' href='pro19.php?page=$x'>".($x+1)."</a></li>";
                 }
             ?>
             

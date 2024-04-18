@@ -1,41 +1,8 @@
 <!-- 
-    BootStrap PHP MYSQL Pagination
+    Limit Data Selections From a MySQL Database
+    MySQL provides a LIMIT clause that is used to specify the number of records to return.
+    The LIMIT clause makes it easy to code multi page results or pagination with SQL, and is very useful on large tables. Returning a large number of records can impact on performance.
  -->
-
-<?php
-$hostname = "localhost";
-$username = "root";
-$password = "";
-$database = "mydb9211";
-
-$pagesize = 10;
-
-if(isset($_GET["page"])){
-    $page = $_GET["page"];
-}else{
-    $page = 0;
-}
-
-try {
-    $connection = new mysqli($hostname, $username, $password, $database);
-
-    if ($connection->connect_error) {
-        throw new Exception("Error while connecting Database Server " . $connection->connect_error);
-    } else {
-        $sqlquery = "select count(roll) from students";
-        $result = $connection->query($sqlquery);
-        while ($row = $result->fetch_assoc()) {
-            $rowcount = $row["count(roll)"];
-        }
-    }
-
-    // echo "Total Records are $rowcount";
-    $pages = ceil($rowcount / $pagesize);
-    //echo "Total Pages are $pages";
-} catch (Exception $err) {
-    echo "<hr> Error is $err";
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,11 +33,22 @@ try {
 
             <tbody>
                 <?php
-                 try {
-           
-                        $offset = $page * $pagesize;
-                        $sqlquery = "select * from students limit $pagesize offset $offset";
+                $hostname = "localhost";
+                $username = "root";
+                $password = "";
+                $database = "mydb9211";
 
+                try {
+                    $connection = new mysqli($hostname, $username, $password, $database);
+
+                    if ($connection->connect_error) {
+                        throw new Exception("Error while connecting Database Server " . $connection->connect_error);
+                    } else {
+                        //$sqlquery = "select * from students";
+                        //$sqlquery = "select * from students limit 10";
+                        //$sqlquery = "select * from students limit 25";
+                        $sqlquery = "select * from students limit 10 offset 10";
+                        
                         // get result 
                         $result = $connection->query($sqlquery);
 
@@ -92,23 +70,17 @@ try {
                         } else {
                             echo "<hr>No Data Found in Table<hr>";
                         }
-                    
+                    }
                 } catch (Exception $err) {
                     echo "<hr> Error is $err";
                 } finally {
+                    $connection->close();
                 }
                 ?>
             </tbody>
         </table>
         <hr>
-        <ul class="pagination justify-content-center">
-            <?php
-                for($x=0; $x<$pages; $x++){
-                    echo "<li class='page-item'><a class='page-link' href='pro17.php?page=$x'>".($x+1)."</a></li>";
-                }
-            ?>
-            
-        </ul>
+       
     </div>
 </body>
 
