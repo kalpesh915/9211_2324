@@ -1,21 +1,22 @@
  <!-- Topbar -->
  <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
      <!-- Sidebar Toggle (Topbar) -->
      <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
          <i class="fa fa-bars"></i>
      </button>
 
-
      <!-- Topbar Navbar -->
      <ul class="navbar-nav ml-auto">
-
+        <?php
+            require_once("classes/Users.class.php");
+            $unreadLogCount = $users->getUnreadLogCount();
+        ?>
          <!-- Nav Item - Alerts -->
          <li class="nav-item dropdown no-arrow mx-1">
              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                  <i class="fas fa-bell fa-fw"></i>
                  <!-- Counter - Alerts -->
-                 <span class="badge badge-danger badge-counter">3</span>
+                 <span class="badge badge-danger badge-counter"><?php echo $unreadLogCount; ?></span>
              </a>
              <!-- Dropdown - Alerts -->
              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
@@ -65,7 +66,7 @@
          <!-- Nav Item - User Information -->
          <li class="nav-item dropdown no-arrow">
              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $email; ?></span>
                  <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
              </a>
              <!-- Dropdown - User Information -->
@@ -108,7 +109,7 @@
              <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
              <div class="modal-footer">
                  <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                 <a class="btn btn-primary" href="login.html">Logout</a>
+                 <a class="btn btn-primary" href="logout.php">Logout</a>
              </div>
          </div>
      </div>
