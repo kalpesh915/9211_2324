@@ -1,8 +1,8 @@
 <?php
     require_once("commons/session.php");
-    require_once("classes/Contactus.class.php");
+    require_once("classes/Meta.class.php");
 
-    $result = $contactus->getContactDetails();
+    $result = $meta->getMetaDetails();
 
     while($row = $result->fetch_assoc()){
         extract($row);
@@ -48,7 +48,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Update Contact US</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Update Meta Details</h1>
                         <button type="button" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="history.back();"><i class="fas fa-arrow-left fa-sm text-white-50"></i> Back</button>
                     </div>
 
@@ -67,45 +67,6 @@
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <!--  Code Here -->
-                                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"> 
-                                    <div class="my-3">
-                                        <label for="contactperson" class="form-label">Enter Contact Person Name</label>
-                                        <input type="text" name="contactperson" id="contactperson" required class="form-control" value="<?php echo $contactperson; ?>">
-                                    </div>
-                                    <div class="my-3">
-                                        <label for="phone1" class="form-label">Enter Phone 1</label>
-                                        <input type="text" name="phone1" id="phone1"  class="form-control" value="<?php echo $phone1; ?>" pattern="\d{10,15}">
-                                    </div>
-                                    <div class="my-3">
-                                        <label for="phone2" class="form-label">Enter Phone 2</label>
-                                        <input type="text" name="phone2" id="phone2"  class="form-control" value="<?php echo $phone2; ?>" pattern="\d{10,15}">
-                                    </div>
-                                    <div class="my-3">
-                                        <label for="email1" class="form-label">Enter Email 1</label>
-                                        <input type="email" name="email1" id="email1"  class="form-control" value="<?php echo $email1; ?>">
-                                    </div>
-                                    <div class="my-3">
-                                        <label for="email2" class="form-label">Enter Email 2  </label>
-                                        <input type="email" name="email2" id="email2"  class="form-control" value="<?php echo $email2; ?>">
-                                    </div>
-                                    <div class="my-3">
-                                        <label for="whatsapp" class="form-label">Enter Whatsapp Number</label>
-                                        <input type="text" name="whatsapp" id="whatsapp"  class="form-control" value="<?php echo $whatsapp; ?>" pattern="\d{10,15}">
-                                    </div>
-                                    <div class="my-3">
-                                        <label for="address" class="form-label">Enter Address</label>
-                                        <textarea name="address" id="address" required  class="form-control" style="resize: none;"><?php echo $address; ?></textarea>
-                                    </div>
-                                    <div class="my-3">
-                                        <label for="googlemap" class="form-label">Enter Google Map URL</label>
-                                        <textarea name="googlemap" id="googlemap" required  class="form-control" style="resize: none;"><?php echo $googlemap; ?></textarea>
-                                    </div>
-                                    <div class="my-3">
-                                        <input type="submit" value="Update" name="updateProcess" class="btn btn-primary">
-                                        <input type="reset" value="Reset" class="btn btn-danger">
-                                    </div>
-                                    </form>
-
                                     <div class="my-3">
                                         <?php
                                             if(isset($_SESSION["msg"])){
@@ -114,6 +75,26 @@
                                             }
                                         ?>
                                     </div>
+                                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"> 
+                                    <div class="my-3">
+                                        <label for="metakeywords" class="form-label">Enter Meta Keywords</label>
+                                        <textarea name="metakeywords" id="metakeywords" class="form-control"><?php echo $metakeywords; ?></textarea>
+                                    </div>
+                                    <div class="my-3">
+                                        <label for="metadescription" class="form-label">Enter Meta Description</label>
+                                        <textarea name="metadescription" id="metadescription" class="form-control"><?php echo $metadescription; ?></textarea>
+                                    </div>
+                                    <div class="my-3">
+                                        <label for="googletagid" class="form-label">Enter Google Tag ID</label>
+                                        <input type="text" name="googletagid" id="googletagid" class="form-control" value="<?php echo $googletagid; ?>">
+                                    </div>
+                                    
+                                    
+                                    <div class="my-3">
+                                        <input type="submit" value="Update" name="updateProcess" class="btn btn-primary">
+                                        <input type="reset" value="Reset" class="btn btn-danger">
+                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -146,19 +127,14 @@
 
 <?php
     if(isset($_POST["updateProcess"])){
-        $contactperson = $users->filterData($_POST["contactperson"]);
-        $phone1 = $users->filterData($_POST["phone1"]);
-        $phone2 = $users->filterData($_POST["phone2"]);
-        $email1 = $users->filterData($_POST["email1"]);
-        $email2 = $users->filterData($_POST["email2"]);
-        $whatsapp = $users->filterData($_POST["whatsapp"]);
-        $address = $users->filterData($_POST["address"]);
-        $googlemap = $users->filterData($_POST["googlemap"]);
-
-        $contactus->updateContactus($contactperson, $phone1, $phone2, $email1, $email2, $whatsapp, $address, $googlemap);
-        $contactus->logWriter($email, "Contact Details are Updated to $contactperson, $phone1, $phone2, $mail1, $email2, $whatsapp, $address, $googlemap");
-        $_SESSION["msg"] = "<div class='alert alert-success alert-dismissible fade show' role='alert'><strong>Success ! </strong> Contact Details Updated
+        $metakeywords = $users->filterData($_POST["metakeywords"]);
+        $metadescription = $users->filterData($_POST["metadescription"]);
+        $googletagid = $users->filterData($_POST["googletagid"]);
+        
+        $meta->updateMeta($metakeywords, $metadescription, $googletagid);
+        $meta->logWriter($email, "Meat Details are Updated with : $metakeywords, $metadescription, $googletagid");
+        $_SESSION["msg"] = "<div class='alert alert-success alert-dismissible fade show' role='alert'><strong>Success ! </strong> Meta Details Updated
         <button type='button' class='close' data-dismiss='alert' aria-label='Close'> <span aria-hidden='true'>&times;</span> </button></div>";
-        header("location:contactus.php");
+        header("location:metatags.php");
     }
 ?>

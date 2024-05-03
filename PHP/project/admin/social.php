@@ -1,8 +1,8 @@
 <?php
     require_once("commons/session.php");
-    require_once("classes/Contactus.class.php");
+    require_once("classes/Social.class.php");
 
-    $result = $contactus->getContactDetails();
+    $result = $social->getSocialDetails();
 
     while($row = $result->fetch_assoc()){
         extract($row);
@@ -48,7 +48,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Update Contact US</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Update Social Media Links</h1>
                         <button type="button" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="history.back();"><i class="fas fa-arrow-left fa-sm text-white-50"></i> Back</button>
                     </div>
 
@@ -67,45 +67,6 @@
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <!--  Code Here -->
-                                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"> 
-                                    <div class="my-3">
-                                        <label for="contactperson" class="form-label">Enter Contact Person Name</label>
-                                        <input type="text" name="contactperson" id="contactperson" required class="form-control" value="<?php echo $contactperson; ?>">
-                                    </div>
-                                    <div class="my-3">
-                                        <label for="phone1" class="form-label">Enter Phone 1</label>
-                                        <input type="text" name="phone1" id="phone1"  class="form-control" value="<?php echo $phone1; ?>" pattern="\d{10,15}">
-                                    </div>
-                                    <div class="my-3">
-                                        <label for="phone2" class="form-label">Enter Phone 2</label>
-                                        <input type="text" name="phone2" id="phone2"  class="form-control" value="<?php echo $phone2; ?>" pattern="\d{10,15}">
-                                    </div>
-                                    <div class="my-3">
-                                        <label for="email1" class="form-label">Enter Email 1</label>
-                                        <input type="email" name="email1" id="email1"  class="form-control" value="<?php echo $email1; ?>">
-                                    </div>
-                                    <div class="my-3">
-                                        <label for="email2" class="form-label">Enter Email 2  </label>
-                                        <input type="email" name="email2" id="email2"  class="form-control" value="<?php echo $email2; ?>">
-                                    </div>
-                                    <div class="my-3">
-                                        <label for="whatsapp" class="form-label">Enter Whatsapp Number</label>
-                                        <input type="text" name="whatsapp" id="whatsapp"  class="form-control" value="<?php echo $whatsapp; ?>" pattern="\d{10,15}">
-                                    </div>
-                                    <div class="my-3">
-                                        <label for="address" class="form-label">Enter Address</label>
-                                        <textarea name="address" id="address" required  class="form-control" style="resize: none;"><?php echo $address; ?></textarea>
-                                    </div>
-                                    <div class="my-3">
-                                        <label for="googlemap" class="form-label">Enter Google Map URL</label>
-                                        <textarea name="googlemap" id="googlemap" required  class="form-control" style="resize: none;"><?php echo $googlemap; ?></textarea>
-                                    </div>
-                                    <div class="my-3">
-                                        <input type="submit" value="Update" name="updateProcess" class="btn btn-primary">
-                                        <input type="reset" value="Reset" class="btn btn-danger">
-                                    </div>
-                                    </form>
-
                                     <div class="my-3">
                                         <?php
                                             if(isset($_SESSION["msg"])){
@@ -114,6 +75,45 @@
                                             }
                                         ?>
                                     </div>
+                                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"> 
+                                    <div class="my-3">
+                                        <label for="facebook" class="form-label">Enter Facebook Link</label>
+                                        <input type="url" name="facebook" id="facebook" class="form-control" value="<?php echo $facebook; ?>">
+                                    </div>
+                                    <div class="my-3">
+                                        <label for="twitter" class="form-label">Enter Twitter Link</label>
+                                        <input type="url" name="twitter" id="twitter" class="form-control" value="<?php echo $twitter; ?>">
+                                    </div>
+                                    <div class="my-3">
+                                        <label for="youtube" class="form-label">Enter Youtube Link</label>
+                                        <input type="url" name="youtube" id="youtube" class="form-control" value="<?php echo $youtube; ?>">
+                                    </div>
+                                    <div class="my-3">
+                                        <label for="linkedin" class="form-label">Enter Linkedin Link</label>
+                                        <input type="url" name="linkedin" id="linkedin" class="form-control" value="<?php echo $linkedin; ?>">
+                                    </div>
+                                    <div class="my-3">
+                                        <label for="github" class="form-label">Enter Github Link</label>
+                                        <input type="url" name="github" id="github" class="form-control" value="<?php echo $github; ?>">
+                                    </div>
+                                    <div class="my-3">
+                                        <label for="telegram" class="form-label">Enter Telegram Link</label>
+                                        <input type="url" name="telegram" id="telegram" class="form-control" value="<?php echo $telegram; ?>">
+                                    </div>
+                                    <div class="my-3">
+                                        <label for="snapchat" class="form-label">Enter Snapchat Link</label>
+                                        <input type="url" name="snapchat" id="snapchat" class="form-control" value="<?php echo $snapchat; ?>">
+                                    </div>
+                                    <div class="my-3">
+                                        <label for="instagram" class="form-label">Enter Instagram Link</label>
+                                        <input type="url" name="instagram" id="instagram" class="form-control" value="<?php echo $instagram; ?>">
+                                    </div>
+                                    
+                                    <div class="my-3">
+                                        <input type="submit" value="Update" name="updateProcess" class="btn btn-primary">
+                                        <input type="reset" value="Reset" class="btn btn-danger">
+                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -146,19 +146,19 @@
 
 <?php
     if(isset($_POST["updateProcess"])){
-        $contactperson = $users->filterData($_POST["contactperson"]);
-        $phone1 = $users->filterData($_POST["phone1"]);
-        $phone2 = $users->filterData($_POST["phone2"]);
-        $email1 = $users->filterData($_POST["email1"]);
-        $email2 = $users->filterData($_POST["email2"]);
-        $whatsapp = $users->filterData($_POST["whatsapp"]);
-        $address = $users->filterData($_POST["address"]);
-        $googlemap = $users->filterData($_POST["googlemap"]);
+        $facebook = $users->filterData($_POST["facebook"]);
+        $twitter = $users->filterData($_POST["twitter"]);
+        $youtube = $users->filterData($_POST["youtube"]);
+        $linkedin = $users->filterData($_POST["linkedin"]);
+        $github = $users->filterData($_POST["github"]);
+        $telegram = $users->filterData($_POST["telegram"]);
+        $snapchat = $users->filterData($_POST["snapchat"]);
+        $instagram = $users->filterData($_POST["instagram"]);
 
-        $contactus->updateContactus($contactperson, $phone1, $phone2, $email1, $email2, $whatsapp, $address, $googlemap);
-        $contactus->logWriter($email, "Contact Details are Updated to $contactperson, $phone1, $phone2, $mail1, $email2, $whatsapp, $address, $googlemap");
-        $_SESSION["msg"] = "<div class='alert alert-success alert-dismissible fade show' role='alert'><strong>Success ! </strong> Contact Details Updated
+        $social->updateSocialMedia($facebook, $twitter, $youtube, $linkedin, $github, $telegram, $snapchat, $instagram);
+        $social->logWriter($email, "Social Media Links are Updated with : $facebook, $twitter, $youtube, $linkedin, $github, $telegram, $snapchat, $instagram");
+        $_SESSION["msg"] = "<div class='alert alert-success alert-dismissible fade show' role='alert'><strong>Success ! </strong> Social Media Details Updated
         <button type='button' class='close' data-dismiss='alert' aria-label='Close'> <span aria-hidden='true'>&times;</span> </button></div>";
-        header("location:contactus.php");
+        header("location:social.php");
     }
 ?>
