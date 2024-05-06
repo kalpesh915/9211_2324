@@ -56,6 +56,16 @@ class Counters extends Connection{
         $sqlquery = "update messages set status = 1 where messageid = $messageid";
         $this->connection->query($sqlquery);
     }
+
+    public function getAllUnreadMessages(){
+        $sqlquery = "select * from messages where status = 0 order by (messageid) desc";
+        return $this->connection->query($sqlquery);
+    }
+
+    public function getAllMessages(){
+        $sqlquery = "select * from messages order by (messageid) desc";
+        return $this->connection->query($sqlquery);
+    }
 }
 
 $counters = new Counters();

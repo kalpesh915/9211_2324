@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2024 at 07:02 AM
+-- Generation Time: May 06, 2024 at 06:59 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.12
 
@@ -42,7 +42,7 @@ CREATE TABLE `adminusers` (
 --
 
 INSERT INTO `adminusers` (`userid`, `fname`, `lname`, `email`, `password`, `created_at`, `updated_at`) VALUES
-(1, '', '', 'admin@project.com', '3acd0be86de7dcccdbf91b20f94a68cea535922d', '2024-05-01 04:19:40', '2024-05-03 04:01:09');
+(1, 'Kenil S', 'KSanganiK', 'admin@project.com', '3acd0be86de7dcccdbf91b20f94a68cea535922d', '2024-05-01 04:19:40', '2024-05-06 04:15:17');
 
 -- --------------------------------------------------------
 
@@ -138,7 +138,16 @@ INSERT INTO `logs` (`logid`, `logtime`, `email`, `logmessage`, `status`) VALUES
 (48, '2024-05-03 04:28:20', 'admin@project.com', 'Social Media Links are Updated with : https://www.dummylink.com, , https://www.dummylink.com, https://www.dummylink.com, , https://www.dummylink.com, https://www.dummylink.com, https://www.dummylink.com', 1),
 (49, '2024-05-03 04:28:45', 'admin@project.com', 'Social Media Links are Updated with : https://www.dummylink.com, https://www.dummylink.com, https://www.dummylink.com, https://www.dummylink.com, , https://www.dummylink.com, https://www.dummylink.com, https://www.dummylink.com', 1),
 (50, '2024-05-03 04:28:58', 'admin@project.com', 'Social Media Links are Updated with : https://www.dummylink.com, https://www.dummylink.com, https://www.dummylink.com, https://www.dummylink.com, https://www.dummylink.com, https://www.dummylink.com, https://www.dummylink.com, https://www.dummylink.com', 1),
-(51, '2024-05-03 04:42:00', 'admin@project.com', 'Meat Details are Updated with : Demo Keyword for meta, this is Demo Meta tag Description, G-YS3ZLEG4S6', 0);
+(51, '2024-05-03 04:42:00', 'admin@project.com', 'Meat Details are Updated with : Demo Keyword for meta, this is Demo Meta tag Description, G-YS3ZLEG4S6', 1),
+(52, '2024-05-03 05:02:54', 'admin@project.com', 'Logout Successfully', 1),
+(53, '2024-05-06 03:47:17', 'admin@project.com', 'Invalid Attempt of Login', 1),
+(54, '2024-05-06 03:47:24', 'admin@project.com', 'Invalid Attempt of Login', 1),
+(55, '2024-05-06 03:47:29', 'admin@project.com', 'Login Successfully', 1),
+(56, '2024-05-06 04:15:06', 'admin@project.com', 'Profile Updated first name Kenil and last name Sangani', 1),
+(57, '2024-05-06 04:15:17', 'admin@project.com', 'Profile Updated first name Kenil S and last name KSanganiK', 1),
+(58, '2024-05-06 04:43:25', 'admin@project.com', 'img1.jpg New Slider Added in Database ', 1),
+(59, '2024-05-06 04:56:02', 'admin@project.com', 'img11.jpg New Slider Added in Database ', 1),
+(60, '2024-05-06 04:58:57', 'admin@project.com', 'Logout Successfully', 0);
 
 -- --------------------------------------------------------
 
@@ -163,10 +172,10 @@ CREATE TABLE `messages` (
 --
 
 INSERT INTO `messages` (`messageid`, `fname`, `lname`, `senderemail`, `phone`, `subject`, `message`, `messagetime`, `status`) VALUES
-(1, 'Demo', 'User', 'demo@gmail.com', '9966332211', 'Testing', 'Testing Message', '2024-05-03 04:45:10', 0),
-(2, 'Demo1', 'User1', 'demo@gmail.com', '9966332211', 'Testing', 'Testing Message', '2024-05-03 04:45:18', 0),
-(3, 'Demo1', 'User21', 'demo@gmail.com', '9966332211', 'Testing', 'Test22ing Message', '2024-05-03 04:45:26', 0),
-(4, 'De22mo1', 'User2221', 'demo@gmail22.com', '9966332211', 'Testing', 'Test22ing Message', '2024-05-03 04:45:38', 0);
+(1, 'Demo', 'User', 'demo@gmail.com', '9966332211', 'Testing', 'Testing Message', '2024-05-03 04:45:10', 1),
+(2, 'Demo1', 'User1', 'demo@gmail.com', '9966332211', 'Testing', 'Testing Message', '2024-05-03 04:45:18', 1),
+(3, 'Demo1', 'User21', 'demo@gmail.com', '9966332211', 'Testing', 'Test22ing Message', '2024-05-03 04:45:26', 1),
+(4, 'De22mo1', 'User2221', 'demo@gmail22.com', '9966332211', 'Testing', 'Test22ing Message', '2024-05-03 04:45:38', 1);
 
 -- --------------------------------------------------------
 
@@ -187,6 +196,28 @@ CREATE TABLE `metatags` (
 
 INSERT INTO `metatags` (`metaid`, `metakeywords`, `metadescription`, `googletagid`) VALUES
 (1, 'Demo Keyword for meta', 'this is Demo Meta tag Description', 'G-YS3ZLEG4S6');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sliders`
+--
+
+CREATE TABLE `sliders` (
+  `sliderid` int(11) NOT NULL,
+  `slidertitle` varchar(128) NOT NULL,
+  `slidertext` varchar(1024) NOT NULL,
+  `sliderimagepath` varchar(256) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `sliders`
+--
+
+INSERT INTO `sliders` (`sliderid`, `slidertitle`, `slidertext`, `sliderimagepath`, `status`) VALUES
+(1, 'Demo1', 'this is demo slider', 'img/sliderimages/06052024064325am 43267 img1.jpg', 0),
+(2, 'Demo1', 'Demo11', 'img/sliderimages/06052024065602am 27644 img11.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -248,6 +279,12 @@ ALTER TABLE `metatags`
   ADD PRIMARY KEY (`metaid`);
 
 --
+-- Indexes for table `sliders`
+--
+ALTER TABLE `sliders`
+  ADD PRIMARY KEY (`sliderid`);
+
+--
 -- Indexes for table `socialmedia`
 --
 ALTER TABLE `socialmedia`
@@ -273,7 +310,7 @@ ALTER TABLE `contactus`
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `logid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `logid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `messages`
@@ -286,6 +323,12 @@ ALTER TABLE `messages`
 --
 ALTER TABLE `metatags`
   MODIFY `metaid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `sliders`
+--
+ALTER TABLE `sliders`
+  MODIFY `sliderid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `socialmedia`
