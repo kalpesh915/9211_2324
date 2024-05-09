@@ -1,4 +1,7 @@
- <!-- Topbar -->
+<?php
+    require_once("classes/Counters.class.php");
+?>
+<!-- Topbar -->
  <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
      <!-- Sidebar Toggle (Topbar) -->
      <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -9,7 +12,7 @@
      <ul class="navbar-nav ml-auto">
         <?php
             require_once("classes/Users.class.php");
-            $unreadLogCount = $users->getUnreadLogCount();
+            $unreadLogCount = $counters->getUnreadLogCount();
         ?>
          <!-- Nav Item - Alerts -->
          <li class="nav-item dropdown no-arrow mx-1">
@@ -23,18 +26,20 @@
                  <h6 class="dropdown-header">
                      Alerts Center
                  </h6> 
-                 <a class="dropdown-item d-flex align-items-center" href="#">
-                     <div class="mr-3">
-                         <div class="icon-circle bg-warning">
-                             <i class="fas fa-exclamation-triangle text-white"></i>
-                         </div>
-                     </div>
-                     <div>
-                         <div class="small text-gray-500">December 2, 2019</div>
-                         Spending Alert: We've noticed unusually high spending for your account.
-                     </div>
-                 </a>
-                 <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                 <?php
+                    $result = $counters->getSomeLogs(3);
+
+                    while($row = $result->fetch_assoc()){
+                        echo "<a class='dropdown-item d-flex align-items-center' href='#'>
+                        <div>
+                            <div class='small'>$row[logtime]</div>
+                            $row[logmessage]
+                        </div>
+                    </a>";
+                    }
+                 ?>
+                 
+                 <a class="dropdown-item text-center small text-gray-500" href="allunreadlogs.php">Show All Alerts</a>
              </div>
          </li>
 
@@ -43,21 +48,25 @@
              <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                  <i class="fas fa-envelope fa-fw"></i>
                  <!-- Counter - Messages -->
-                 <span class="badge badge-danger badge-counter">7</span>
+                 <span class="badge badge-danger badge-counter"><?php echo $counters->getUnreadMessageCount();?></span>
              </a>
              <!-- Dropdown - Messages -->
              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
                  <h6 class="dropdown-header">
                      Message Center
                  </h6>                 
-                 <a class="dropdown-item d-flex align-items-center" href="#">
-                     <div>
-                         <div class="text-truncate">Am I a good boy? The reason I ask is because someone
-                             told me that people say this to all dogs, even if they aren't good...</div>
-                         <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                     </div>
-                 </a>
-                 <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                 <?php
+                    $result = $counters->getSomeMessages(3);
+                    while($row = $result->fetch_assoc()){
+                        echo "<a class='dropdown-item d-flex align-items-center' href='readmessage.php?messageid=$row[messageid]'>
+                        <div>
+                            <div class='text-truncate'>$row[fname] : $row[subject]</div>
+                            <div class='small text-gray-500'>$row[messagetime]</div>
+                        </div>
+                    </a>";
+                    }
+                 ?>
+                 <a class="dropdown-item text-center small text-gray-500" href="viewallunreadmessages.php">Read More Messages</a>
              </div>
          </li>
 
@@ -71,15 +80,23 @@
              </a>
              <!-- Dropdown - User Information -->
              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                 <a class="dropdown-item" href="#">
+                 <a class="dropdown-item" href="profile.php">
                      <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                      Profile
                  </a>
-                 <a class="dropdown-item" href="#">
+                 <a class="dropdown-item" href="password.php">
+                     <i class="fas fa-key fa-sm fa-fw mr-2 text-gray-400"></i>
+                     Password
+                 </a>
+                 <a class="dropdown-item" href="settings.php">
                      <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                      Settings
                  </a>
-                 <a class="dropdown-item" href="#">
+                 <a class="dropdown-item" href="metatags.php">
+                     <i class="fas fa-search fa-sm fa-fw mr-2 text-gray-400"></i>
+                     SEO
+                 </a>
+                 <a class="dropdown-item" href="activitylogs.php">
                      <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                      Activity Log
                  </a>

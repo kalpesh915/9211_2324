@@ -21,6 +21,26 @@
             $sqlquery = "update sliders set status = $status where sliderid = $sliderid";
             $this->connection->query($sqlquery);
         }
+
+        public function updateSlider($sliderid, $slidertitle, $slidertext, $sliderimagepath = null){
+            if($sliderimagepath === null){
+                $sqlquery = "update sliders set slidertitle = '$slidertitle', slidertext = '$slidertext' where sliderid = $sliderid";
+                $this->connection->query($sqlquery);
+            }else{
+                // code for update slider photo
+                $sqlquery = "select sliderimagepath from sliders where sliderid = $sliderid";
+
+                $result = $this->connection->query($sqlquery);
+
+                while($row = $result->fetch_assoc()){
+                    // delete slider image
+                    unlink($row["sliderimagepath"]);
+                }
+
+                $sqlquery = "update sliders set slidertitle = '$slidertitle', slidertext = '$slidertext', sliderimagepath = '$sliderimagepath' where sliderid = $sliderid";
+                $this->connection->query($sqlquery);
+            }
+        }
     }
 
     $slider = new Slider();
