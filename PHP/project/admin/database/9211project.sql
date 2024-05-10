@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2024 at 06:59 AM
+-- Generation Time: May 10, 2024 at 06:47 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.12
 
@@ -47,6 +47,28 @@ INSERT INTO `adminusers` (`userid`, `fname`, `lname`, `email`, `password`, `crea
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `categorys`
+--
+
+CREATE TABLE `categorys` (
+  `categoryid` int(11) NOT NULL,
+  `categoryname` varchar(128) NOT NULL,
+  `categoryclassname` varchar(128) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `categorys`
+--
+
+INSERT INTO `categorys` (`categoryid`, `categoryname`, `categoryclassname`, `status`) VALUES
+(1, 'Demo1', 'Demo1', 0),
+(2, 'Demo 11', 'Demo-11', 1),
+(3, 'another text', 'another-text', 0);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `contactus`
 --
 
@@ -68,6 +90,26 @@ CREATE TABLE `contactus` (
 
 INSERT INTO `contactus` (`contactid`, `contactperson`, `phone1`, `phone2`, `email1`, `email2`, `whatsapp`, `address`, `googlemap`) VALUES
 (1, 'kenil sangani', '8574964565', '9632147850', 'kenil@gmail.com', 'kenil@yahoo.com', '9966554455', 'Near Naptune Tower Kalawad Road Rajkot', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14766.863003585162!2d70.77560319999999!3d22.288754849999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959ca2471312a07%3A0xabc998708aa8d138!2sBAPS%20Shri%20Swaminarayan%20Mandir%2C%20Rajkot!5e0!3m2!1sen!2sin!4v1714625364652!5m2!1sen!2sin');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `faq`
+--
+
+CREATE TABLE `faq` (
+  `faqid` int(11) NOT NULL,
+  `question` varchar(512) NOT NULL,
+  `answer` varchar(2048) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `faq`
+--
+
+INSERT INTO `faq` (`faqid`, `question`, `answer`, `status`) VALUES
+(2, 'Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?', 'Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.', 0);
 
 -- --------------------------------------------------------
 
@@ -147,7 +189,27 @@ INSERT INTO `logs` (`logid`, `logtime`, `email`, `logmessage`, `status`) VALUES
 (57, '2024-05-06 04:15:17', 'admin@project.com', 'Profile Updated first name Kenil S and last name KSanganiK', 1),
 (58, '2024-05-06 04:43:25', 'admin@project.com', 'img1.jpg New Slider Added in Database ', 1),
 (59, '2024-05-06 04:56:02', 'admin@project.com', 'img11.jpg New Slider Added in Database ', 1),
-(60, '2024-05-06 04:58:57', 'admin@project.com', 'Logout Successfully', 0);
+(60, '2024-05-06 04:58:57', 'admin@project.com', 'Logout Successfully', 1),
+(61, '2024-05-08 03:45:14', 'admin@project.com', 'Invalid Attempt of Login', 1),
+(62, '2024-05-08 03:45:19', 'admin@project.com', 'Login Successfully', 1),
+(63, '2024-05-08 04:23:55', 'admin@project.com', ' New Slider Updatd in Database ', 1),
+(64, '2024-05-08 04:25:01', 'admin@project.com', 'img7.jpg New Slider Updatd in Database ', 1),
+(65, '2024-05-08 04:25:37', 'admin@project.com', 'img1.jpg New Slider Updatd in Database ', 1),
+(66, '2024-05-08 04:26:04', 'admin@project.com', 'img2.jpg New Slider Updatd in Database ', 1),
+(67, '2024-05-08 04:26:31', 'admin@project.com', 'img3.jpg New Slider Added in Database ', 1),
+(68, '2024-05-08 04:29:22', 'admin@project.com', 'Logout Successfully', 1),
+(69, '2024-05-09 03:52:21', 'admin@project.com', 'Login Successfully', 1),
+(70, '2024-05-09 04:22:55', 'admin@project.com', 'Non consectetur a erat nam at lectus urna duis? New Faq Added', 1),
+(71, '2024-05-09 04:23:17', 'admin@project.com', 'Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque? New Faq Added', 1),
+(72, '2024-05-09 04:24:01', 'admin@project.com', 'Dolor sit amet consectetur adipiscing elit pellentesque? New Faq Added', 1),
+(73, '2024-05-09 04:41:46', 'admin@project.com', 'Dolor sit amet consectetur adipiscing elit pellentesque? Deleted From FAQ', 1),
+(74, '2024-05-09 04:46:30', 'admin@project.com', 'Logout Successfully', 1),
+(75, '2024-05-10 03:47:58', 'admin@project.com', 'Login Successfully', 1),
+(76, '2024-05-10 04:31:46', 'admin@project.com', 'Demo1 Category Added in Database', 1),
+(77, '2024-05-10 04:31:57', 'admin@project.com', 'Demo 11 Category Added in Database', 1),
+(78, '2024-05-10 04:32:21', 'admin@project.com', 'another demo text Category Added in Database', 1),
+(79, '2024-05-10 04:44:47', 'admin@project.com', 'another text Category Updated in Database', 1),
+(80, '2024-05-10 04:47:11', 'admin@project.com', 'Logout Successfully', 0);
 
 -- --------------------------------------------------------
 
@@ -216,8 +278,9 @@ CREATE TABLE `sliders` (
 --
 
 INSERT INTO `sliders` (`sliderid`, `slidertitle`, `slidertext`, `sliderimagepath`, `status`) VALUES
-(1, 'Demo1', 'this is demo slider', 'img/sliderimages/06052024064325am 43267 img1.jpg', 0),
-(2, 'Demo1', 'Demo11', 'img/sliderimages/06052024065602am 27644 img11.jpg', 0);
+(1, 'Slider 1', 'This is Slider 1', 'img/sliderimages/08052024062537am 47660 img1.jpg', 1),
+(2, 'Slider 2', 'This is Slider 2', 'img/sliderimages/08052024062604am 13720 img2.jpg', 1),
+(3, 'Slider 3', 'This is Slider 3', 'img/sliderimages/08052024062631am 22424 img3.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -255,10 +318,22 @@ ALTER TABLE `adminusers`
   ADD PRIMARY KEY (`userid`);
 
 --
+-- Indexes for table `categorys`
+--
+ALTER TABLE `categorys`
+  ADD PRIMARY KEY (`categoryid`);
+
+--
 -- Indexes for table `contactus`
 --
 ALTER TABLE `contactus`
   ADD PRIMARY KEY (`contactid`);
+
+--
+-- Indexes for table `faq`
+--
+ALTER TABLE `faq`
+  ADD PRIMARY KEY (`faqid`);
 
 --
 -- Indexes for table `logs`
@@ -301,16 +376,28 @@ ALTER TABLE `adminusers`
   MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `categorys`
+--
+ALTER TABLE `categorys`
+  MODIFY `categoryid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `contactus`
 --
 ALTER TABLE `contactus`
   MODIFY `contactid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `faq`
+--
+ALTER TABLE `faq`
+  MODIFY `faqid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `logid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `logid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT for table `messages`
@@ -328,7 +415,7 @@ ALTER TABLE `metatags`
 -- AUTO_INCREMENT for table `sliders`
 --
 ALTER TABLE `sliders`
-  MODIFY `sliderid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `sliderid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `socialmedia`
