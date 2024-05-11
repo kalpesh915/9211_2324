@@ -1,5 +1,12 @@
 <?php
-    require_once("commons/session.php");
+require_once("commons/session.php");
+require_once("classes/Settings.class.php");
+
+$result = $settings->getAllSettings();
+
+while ($row = $result->fetch_assoc()) {
+    extract($row);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,7 +48,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Page Title</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Settings</h1>
                         <button type="button" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="history.back();"><i class="fas fa-arrow-left fa-sm text-white-50"></i> Back</button>
                     </div>
 
@@ -50,19 +57,61 @@
                     ?>
 
                     <div class="row">
-
-                    
                         <div class="col-xl-12 col-lg-12">
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-primary"></h6>
-                                    
+
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <!--  Code Here -->
-                                    
+                                    <?php
+                                    if (isset($_SESSION["msg"])) {
+                                        echo $_SESSION["msg"];
+                                        unset($_SESSION["msg"]);
+                                    }
+                                    ?>
+
+                                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                                        <div class="my-3">
+                                            <label for="googletranslate">Select Google Translate</label>
+                                            <select name="googletranslate" id="googletranslate" class="form-control">
+                                                <?php
+                                                if ($googletranslate == 1) {
+                                                    echo "<option value='1' selected>Enabled</option>
+                                                        <option value='0'>Disabled</option>";
+                                                } else {
+                                                    echo "<option value='1'>Enabled</option>
+                                                        <option value='0' selected>Disabled</option>";
+                                                }
+                                                ?>
+
+                                            </select>
+                                        </div>
+
+                                        <div class="my-3">
+                                            <label for="careeroption">Select Career Option</label>
+                                            <select name="careeroption" id="careeroption" class="form-control">
+                                                <?php
+                                                if ($careeroption == 1) {
+                                                    echo "<option value='1' selected>Enabled</option>
+                                                        <option value='0'>Disabled</option>";
+                                                } else {
+                                                    echo "<option value='1'>Enabled</option>
+                                                        <option value='0' selected>Disabled</option>";
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+
+                                        <div class="my-3">
+                                            <input type="submit" value="Save Data" class="btn btn-primary" name="updateProcess">
+                                            <input type="reset" value="Reset" class="btn btn-danger">
+                                        </div>
+                                    </form>
+
                                 </div>
                             </div>
                         </div>
@@ -71,7 +120,7 @@
                 <!-- /.container-fluid -->
             </div>
             <!-- End of Main Content -->
-           <?php require_once("commons/footer.php"); ?>
+            <?php require_once("commons/footer.php"); ?>
         </div>
         <!-- End of Content Wrapper -->
     </div>
@@ -80,7 +129,7 @@
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
-    </a>    
+    </a>
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -91,4 +140,20 @@
 
     <!-- Page level custom scripts -->
 </body>
+
 </html>
+
+<?php
+if (isset($_POST["updateProcess"])) {
+    $googletranslate = $settings->filterData($_POST["googletranslate"]);
+    $careeroption = $settings->filterData($_POST["careeroption"]);
+
+    $settings->updateSettings($googletranslate, $careeroption);
+    $_SESSION["msg"] = "<div class='alert alert-success alert-dismissible fade show' role='alert'><strong>Success ! </strong>  Settings Updated
+    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+      <span aria-hidden='true'>&times;</span>
+    </button>
+  </div>";
+    header("location:settings.php");
+}
+?>
