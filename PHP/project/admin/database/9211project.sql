@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2024 at 06:47 AM
+-- Generation Time: May 13, 2024 at 06:44 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.12
 
@@ -62,9 +62,9 @@ CREATE TABLE `categorys` (
 --
 
 INSERT INTO `categorys` (`categoryid`, `categoryname`, `categoryclassname`, `status`) VALUES
-(1, 'Demo1', 'Demo1', 0),
+(1, 'Demo1', 'Demo1', 1),
 (2, 'Demo 11', 'Demo-11', 1),
-(3, 'another text', 'another-text', 0);
+(3, 'another text', 'another-text', 1);
 
 -- --------------------------------------------------------
 
@@ -209,7 +209,18 @@ INSERT INTO `logs` (`logid`, `logtime`, `email`, `logmessage`, `status`) VALUES
 (77, '2024-05-10 04:31:57', 'admin@project.com', 'Demo 11 Category Added in Database', 1),
 (78, '2024-05-10 04:32:21', 'admin@project.com', 'another demo text Category Added in Database', 1),
 (79, '2024-05-10 04:44:47', 'admin@project.com', 'another text Category Updated in Database', 1),
-(80, '2024-05-10 04:47:11', 'admin@project.com', 'Logout Successfully', 0);
+(80, '2024-05-10 04:47:11', 'admin@project.com', 'Logout Successfully', 1),
+(81, '2024-05-11 03:47:39', 'admin@project.com', 'Login Successfully', 1),
+(82, '2024-05-11 04:43:12', 'admin@project.com', 'Logout Successfully', 1),
+(83, '2024-05-13 03:20:06', 'admin@project.com', 'Invalid Attempt of Login', 1),
+(84, '2024-05-13 03:20:16', 'admin@project.com', 'Login Successfully', 1),
+(85, '2024-05-13 04:19:09', 'admin@project.com', 'Car Service Added in Database', 1),
+(86, '2024-05-13 04:23:37', 'admin@project.com', 'User Service Added in Database', 1),
+(87, '2024-05-13 04:23:51', 'admin@project.com', 'Team Service Added in Database', 1),
+(88, '2024-05-13 04:32:27', 'admin@project.com', 'Team Service Added in Database', 1),
+(89, '2024-05-13 04:33:25', 'admin@project.com', 'Cars Service Updated in Database', 1),
+(90, '2024-05-13 04:34:10', 'admin@project.com', 'Cars Service Updated in Database', 1),
+(91, '2024-05-13 04:38:41', 'admin@project.com', 'Our Team Service Updated in Database', 1);
 
 -- --------------------------------------------------------
 
@@ -262,6 +273,49 @@ INSERT INTO `metatags` (`metaid`, `metakeywords`, `metadescription`, `googletagi
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `services`
+--
+
+CREATE TABLE `services` (
+  `serviceid` int(11) NOT NULL,
+  `servicetitle` varchar(128) NOT NULL,
+  `servicedescription` varchar(256) NOT NULL,
+  `serviceicon` varchar(128) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `services`
+--
+
+INSERT INTO `services` (`serviceid`, `servicetitle`, `servicedescription`, `serviceicon`, `status`, `created_at`, `updated_at`) VALUES
+(2, 'User', 'User Friendlly', 'fa fa-user', 1, '2024-05-13 04:23:37', '2024-05-13 04:23:37'),
+(3, 'Our Team', 'We have Large Team', 'fa fa-users', 1, '2024-05-13 04:23:51', '2024-05-13 04:38:41');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `settings`
+--
+
+CREATE TABLE `settings` (
+  `settingid` tinyint(4) NOT NULL,
+  `googletranslate` tinyint(4) NOT NULL DEFAULT 1,
+  `careeroption` tinyint(4) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `settings`
+--
+
+INSERT INTO `settings` (`settingid`, `googletranslate`, `careeroption`) VALUES
+(1, 1, 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sliders`
 --
 
@@ -306,6 +360,29 @@ CREATE TABLE `socialmedia` (
 
 INSERT INTO `socialmedia` (`socialid`, `facebook`, `twitter`, `youtube`, `linkedin`, `github`, `telegram`, `snapchat`, `instagram`) VALUES
 (1, 'https://www.dummylink.com', 'https://www.dummylink.com', 'https://www.dummylink.com', 'https://www.dummylink.com', 'https://www.dummylink.com', 'https://www.dummylink.com', 'https://www.dummylink.com', 'https://www.dummylink.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subscribers`
+--
+
+CREATE TABLE `subscribers` (
+  `subscriberid` int(11) NOT NULL,
+  `subscribetime` timestamp NULL DEFAULT current_timestamp(),
+  `subscriberemail` varchar(128) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `subscribers`
+--
+
+INSERT INTO `subscribers` (`subscriberid`, `subscribetime`, `subscriberemail`, `status`) VALUES
+(1, '2024-05-11 04:11:14', 'kenil@gmail.com', 1),
+(2, '2024-05-11 04:11:14', 'ridham@gmail.com', 1),
+(3, '2024-05-11 04:11:35', 'bhalabhai@gmail.com', 1),
+(4, '2024-05-11 04:11:35', 'khushi@gmail.com', 1);
 
 --
 -- Indexes for dumped tables
@@ -354,6 +431,18 @@ ALTER TABLE `metatags`
   ADD PRIMARY KEY (`metaid`);
 
 --
+-- Indexes for table `services`
+--
+ALTER TABLE `services`
+  ADD PRIMARY KEY (`serviceid`);
+
+--
+-- Indexes for table `settings`
+--
+ALTER TABLE `settings`
+  ADD PRIMARY KEY (`settingid`);
+
+--
 -- Indexes for table `sliders`
 --
 ALTER TABLE `sliders`
@@ -364,6 +453,12 @@ ALTER TABLE `sliders`
 --
 ALTER TABLE `socialmedia`
   ADD PRIMARY KEY (`socialid`);
+
+--
+-- Indexes for table `subscribers`
+--
+ALTER TABLE `subscribers`
+  ADD PRIMARY KEY (`subscriberid`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -397,7 +492,7 @@ ALTER TABLE `faq`
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `logid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `logid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 
 --
 -- AUTO_INCREMENT for table `messages`
@@ -412,6 +507,18 @@ ALTER TABLE `metatags`
   MODIFY `metaid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `services`
+--
+ALTER TABLE `services`
+  MODIFY `serviceid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `settings`
+--
+ALTER TABLE `settings`
+  MODIFY `settingid` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `sliders`
 --
 ALTER TABLE `sliders`
@@ -422,6 +529,12 @@ ALTER TABLE `sliders`
 --
 ALTER TABLE `socialmedia`
   MODIFY `socialid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `subscribers`
+--
+ALTER TABLE `subscribers`
+  MODIFY `subscriberid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

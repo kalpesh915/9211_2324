@@ -2,7 +2,7 @@
    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
        <!-- Sidebar - Brand -->
-       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="home.php">
+       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="home">
            <div class="sidebar-brand-icon">
                <i class="fas fa-home"></i>
            </div>
@@ -14,7 +14,7 @@
 
        <!-- Nav Item - Dashboard -->
        <li class="nav-item active">
-           <a class="nav-link" href="home.php">
+           <a class="nav-link" href="home">
                <i class="fas fa-fw fa-tachometer-alt"></i>
                <span>Dashboard</span></a>
        </li>
@@ -24,7 +24,7 @@
 
         <!-- Nav Item - Services -->
         <li class="nav-item">
-           <a class="nav-link" href="category.php">
+           <a class="nav-link" href="category">
                <i class="fas fa-fw fa-list"></i>
                <span>Category</span></a>
        </li>
@@ -54,8 +54,8 @@
            </a>
            <div id="collapseMsg" class="collapse" aria-labelledby="headingMsg" data-parent="#accordionSidebar">
                <div class="bg-white py-2 collapse-inner rounded">
-                   <a class="collapse-item" href="viewallunreadmessages.php">Unread</a>
-                   <a class="collapse-item" href="viewallmessages.php">All</a>
+                   <a class="collapse-item" href="viewallunreadmessages">Unread</a>
+                   <a class="collapse-item" href="viewallmessages">All</a>
                 </div>
            </div>
        </li>
@@ -68,11 +68,11 @@
            </a>
            <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                <div class="bg-white py-2 collapse-inner rounded">
-                   <a class="collapse-item" href="contactus.php">Contact</a>
-                   <a class="collapse-item" href="social.php">Social Media </a>
-                   <a class="collapse-item" href="metatags.php">Meta</a>
-                   <a class="collapse-item" href="faq.php">FAQ</a>
-                   <a class="collapse-item" href="gallery.php">Gallery</a>
+                   <a class="collapse-item" href="contactus">Contact</a>
+                   <a class="collapse-item" href="social">Social Media </a>
+                   <a class="collapse-item" href="metatags">Meta</a>
+                   <a class="collapse-item" href="faq">FAQ</a>
+                   <a class="collapse-item" href="gallery">Gallery</a>
                 </div>
            </div>
        </li>
@@ -85,17 +85,24 @@
            </a>
            <div id="collapseSlider" class="collapse" aria-labelledby="headingSlider" data-parent="#accordionSidebar">
                <div class="bg-white py-2 collapse-inner rounded">
-                   <a class="collapse-item" href="addslider.php">Add</a>
-                   <a class="collapse-item" href="manageslider.php">Manage</a>
+                   <a class="collapse-item" href="addslider">Add</a>
+                   <a class="collapse-item" href="manageslider">Manage</a>
                 </div>
            </div>
        </li>
 
        <!-- Nav Item - Services -->
        <li class="nav-item">
-           <a class="nav-link" href="services.php">
+           <a class="nav-link" href="services">
                <i class="fas fa-fw fa-cog"></i>
                <span>Services</span></a>
+       </li>
+
+       <!-- Nav Item - Sunscribers -->
+       <li class="nav-item">
+           <a class="nav-link" href="subscribers">
+               <i class="fas fa-fw fa-users"></i>
+               <span>Subscribers</span></a>
        </li>
 
         
