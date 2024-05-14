@@ -85,24 +85,25 @@ require_once("classes/Slider.class.php");
                                             </tfoot>
                                             <tbody>
                                                 <?php
-                                                    $result = $slider->getAllSliderImages();
+                                                $result = $slider->getAllSliderImages();
 
-                                                    while($row = $result->fetch_assoc()){
+                                                while ($row = $result->fetch_assoc()) {
 
-                                                        if($row["status"] == 1){
-                                                            $statusbtn = "<a href='manageslider.php?sliderid=$row[sliderid]&status=0' class='btn btn-danger'>Disable</a>";
-                                                        }else{
-                                                            $statusbtn = "<a href='manageslider.php?sliderid=$row[sliderid]&status=1' class='btn btn-success'>Enable</a>";
-                                                        }
+                                                    if ($row["status"] == 1) {
+                                                        $statusbtn = "<a href='manageslider.php?sliderid=$row[sliderid]&status=0' class='btn btn-danger'>Disable</a>";
+                                                    } else {
+                                                        $statusbtn = "<a href='manageslider.php?sliderid=$row[sliderid]&status=1' class='btn btn-success'>Enable</a>";
+                                                    }
 
-                                                        echo "<tr>
+                                                    echo "<tr>
                                                             <td>$row[slidertitle]</td>
                                                             <td>
                                                                 <img src='$row[sliderimagepath]' style='height:100px; width:150px;'>
                                                             </td>
                                                             <td>$statusbtn</td>
+                                                            <td><a href='editslider.php?sliderid=$row[sliderid]' class='btn btn-primary'>Edit</td>
                                                         </tr>";
-                                                    }
+                                                }
                                                 ?>
                                             </tbody>
                                         </table>
@@ -144,12 +145,12 @@ require_once("classes/Slider.class.php");
 </html>
 
 <?php
-    if(isset($_GET["status"])){
-        $sliderid = $slider->filterData($_GET["sliderid"]);
-        $status = $slider->filterData($_GET["status"]);
+if (isset($_GET["status"])) {
+    $sliderid = $slider->filterData($_GET["sliderid"]);
+    $status = $slider->filterData($_GET["status"]);
 
-        $slider->changeSliderStatus($sliderid, $status);
+    $slider->changeSliderStatus($sliderid, $status);
 
-        header("location:manageslider.php");
-    }
+    header("location:manageslider.php");
+}
 ?>

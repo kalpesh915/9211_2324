@@ -39,7 +39,7 @@
                     }
                  ?>
                  
-                 <a class="dropdown-item text-center small text-gray-500" href="allunreadlogs.php">Show All Alerts</a>
+                 <a class="dropdown-item text-center small text-gray-500" href="allunreadlogs">Show All Alerts</a>
              </div>
          </li>
 
@@ -58,7 +58,7 @@
                  <?php
                     $result = $counters->getSomeMessages(3);
                     while($row = $result->fetch_assoc()){
-                        echo "<a class='dropdown-item d-flex align-items-center' href='readmessage.php?messageid=$row[messageid]'>
+                        echo "<a class='dropdown-item d-flex align-items-center' href='readmessage?messageid=$row[messageid]'>
                         <div>
                             <div class='text-truncate'>$row[fname] : $row[subject]</div>
                             <div class='small text-gray-500'>$row[messagetime]</div>
@@ -66,7 +66,7 @@
                     </a>";
                     }
                  ?>
-                 <a class="dropdown-item text-center small text-gray-500" href="viewallunreadmessages.php">Read More Messages</a>
+                 <a class="dropdown-item text-center small text-gray-500" href="viewallunreadmessages">Read More Messages</a>
              </div>
          </li>
 
@@ -95,6 +95,10 @@
                  <a class="dropdown-item" href="metatags">
                      <i class="fas fa-search fa-sm fa-fw mr-2 text-gray-400"></i>
                      SEO
+                 </a>
+                 <a class="dropdown-item" href="backup">
+                     <i class="fas fa-hdd fa-sm fa-fw mr-2 text-gray-400"></i>
+                     Backup
                  </a>
                  <a class="dropdown-item" href="activitylogs">
                      <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>

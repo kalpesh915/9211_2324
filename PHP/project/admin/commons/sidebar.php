@@ -72,7 +72,6 @@
                    <a class="collapse-item" href="social">Social Media </a>
                    <a class="collapse-item" href="metatags">Meta</a>
                    <a class="collapse-item" href="faq">FAQ</a>
-                   <a class="collapse-item" href="gallery">Gallery</a>
                 </div>
            </div>
        </li>
@@ -81,12 +80,13 @@
        <li class="nav-item">
            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSlider" aria-expanded="true" aria-controls="collapseSlider">
                <i class="fas fa-fw fa-bars"></i>
-               <span>Slider</span>
+               <span>Slider / Gallery</span>
            </a>
            <div id="collapseSlider" class="collapse" aria-labelledby="headingSlider" data-parent="#accordionSidebar">
                <div class="bg-white py-2 collapse-inner rounded">
                    <a class="collapse-item" href="addslider">Add</a>
-                   <a class="collapse-item" href="manageslider">Manage</a>
+                   <a class="collapse-item" href="manageslider">Manage Slider</a>
+                   <a class="collapse-item" href="managegallery">Manage Gallery</a>
                 </div>
            </div>
        </li>
@@ -94,14 +94,26 @@
        <!-- Nav Item - Services -->
        <li class="nav-item">
            <a class="nav-link" href="services">
-               <i class="fas fa-fw fa-cog"></i>
+               <i class="fas fa-fw fa-hands"></i>
                <span>Services</span></a>
+       </li>
+
+       <li class="nav-item">
+           <a class="nav-link" href="career">
+               <i class="fas fa-fw fa-graduation-cap"></i>
+               <span>Career</span></a>
+       </li>
+
+       <li class="nav-item">
+           <a class="nav-link" href="team">
+               <i class="fas fa-fw fa-users"></i>
+               <span>Team</span></a>
        </li>
 
        <!-- Nav Item - Sunscribers -->
        <li class="nav-item">
            <a class="nav-link" href="subscribers">
-               <i class="fas fa-fw fa-users"></i>
+               <i class="fas fa-fw fa-bell"></i>
                <span>Subscribers</span></a>
        </li>
 

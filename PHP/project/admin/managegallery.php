@@ -1,7 +1,6 @@
 <?php
 require_once("commons/session.php");
-require_once("classes/Category.class.php");
-
+require_once("classes/Slider.class.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +44,7 @@ require_once("classes/Category.class.php");
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Add / Manage Category</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Manage Gallery</h1>
                         <button type="button" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="history.back();"><i class="fas fa-arrow-left fa-sm text-white-50"></i> Back</button>
                     </div>
 
@@ -60,65 +59,49 @@ require_once("classes/Category.class.php");
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Add Category</h6>
-                                    <button class="btn btn-primary" data-toggle="collapse" data-target="#addCategory">Add New</button>
+                                    <h6 class="m-0 font-weight-bold text-primary"></h6>
+
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <!--  Code Here -->
-                                    <?php
-                                    if (isset($_SESSION["msg"])) {
-                                        echo $_SESSION["msg"];
-                                        unset($_SESSION["msg"]);
-                                    }
-                                    ?>
-                                    <div id="addCategory" class="collapse">
-                                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
-                                            <div class="my-3">
-                                                <label for="categoryname">Enter Category Name</label>
-                                                <input type="text" name="categoryname" id="categoryname" class="form-control" required>
-                                            </div>
-
-                                            <div class="my-3">
-                                                <input type="submit" value="Add New Category" class="btn btn-primary" name="addProcess">
-                                                <input type="reset" value="Reset" class="btn btn-danger">
-                                            </div>
-                                        </form>
-                                    </div>
-
-                                    <hr>
                                     <div class="table-responsive">
                                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                             <thead>
                                                 <tr>
-                                                    <th>Category Name</th>
+                                                    <th>Title</th>
+                                                    <th>Image</th>
                                                     <th>Status</th>
                                                     <th>Edit</th>
                                                 </tr>
                                             </thead>
                                             <tfoot>
                                                 <tr>
-                                                    <th>Category Name</th>
+                                                    <th>Title</th>
+                                                    <th>Image</th>
                                                     <th>Status</th>
                                                     <th>Edit</th>
                                                 </tr>
                                             </tfoot>
                                             <tbody>
                                                 <?php
-                                                $result = $category->getAllCategory();
+                                                $result = $slider->getAllGalleryImages();
 
                                                 while ($row = $result->fetch_assoc()) {
 
                                                     if ($row["status"] == 1) {
-                                                        $statusbtn = "<a href='category?categoryid=$row[categoryid]&status=0' class='btn btn-danger'>Disable</a>";
+                                                        $statusbtn = "<a href='managegallery?sliderid=$row[sliderid]&status=0' class='btn btn-danger'>Disable</a>";
                                                     } else {
-                                                        $statusbtn = "<a href='category?categoryid=$row[categoryid]&status=1' class='btn btn-success'>Enable</a>";
+                                                        $statusbtn = "<a href='managegallery?sliderid=$row[sliderid]&status=1' class='btn btn-success'>Enable</a>";
                                                     }
 
                                                     echo "<tr>
-                                                            <td>$row[categoryname]</td>
+                                                            <td>$row[slidertitle]</td>
+                                                            <td>
+                                                                <img src='$row[sliderimagepath]' style='height:100px; width:150px;'>
+                                                            </td>
                                                             <td>$statusbtn</td>
-                                                            <td><a href='editcategory?categoryid=$row[categoryid]' class='btn btn-primary'>Edit</a></td>
+                                                            <td><a href='editslider.php?sliderid=$row[sliderid]' class='btn btn-primary'>Edit</td>
                                                         </tr>";
                                                 }
                                                 ?>
@@ -151,7 +134,7 @@ require_once("classes/Category.class.php");
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
     <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
+    <!-- Page level custom scripts -->
     <script src="vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
@@ -162,30 +145,12 @@ require_once("classes/Category.class.php");
 </html>
 
 <?php
-if (isset($_POST["addProcess"])) {
-    $categoryname = $category->filterData($_POST["categoryname"]);
-    
-    if($category->addNewCategory($categoryname)){
-        $category->logWriter($email, "$categoryname Category Added in Database");
-        $_SESSION["msg"] = "<div class='alert alert-success alert-dismissible fade show' role='alert'><strong>Success ! </strong> $categoryname Category Added in Database
-        <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-        <span aria-hidden='true'>&times;</span></button></div>";
-    }else{
-        $_SESSION["msg"] = "<div class='alert alert-danger alert-dismissible fade show' role='alert'><strong>Error ! </strong> $categoryname Category Already Added in Database
-        <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-        <span aria-hidden='true'>&times;</span></button></div>";
-    }
-
-    header("location:category");
-}
-
-// change FAQ Status
-
 if (isset($_GET["status"])) {
-    $categoryid = $category->filterData($_GET["categoryid"]);
-    $status = $category->filterData($_GET["status"]);
+    $sliderid = $slider->filterData($_GET["sliderid"]);
+    $status = $slider->filterData($_GET["status"]);
 
-    $category->updateCategoryStatus($categoryid, $status);
-    header("location:category");
+    $slider->changeSliderStatus($sliderid, $status);
+
+    header("location:managegallery");
 }
 ?>

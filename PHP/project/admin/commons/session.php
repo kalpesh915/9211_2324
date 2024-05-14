@@ -3,6 +3,8 @@
     session_start();
     ob_start();
 
+    date_default_timezone_set("Asia/Kolkata");
+
     if(isset($_SESSION["email"])){
         $email = $_SESSION["email"];
     }else{

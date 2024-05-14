@@ -1,14 +1,8 @@
 <?php
-require_once("commons/session.php");
-require_once("classes/Category.class.php");
 
-$categoryid = $category->filterData($_GET["categoryid"]);
+use Ifsnop\Mysqldump\Mysqldump;
 
-$result = $category->getSingleCategory($categoryid);
-
-while($row = $result->fetch_assoc()){
-    extract($row);
-}
+    require_once("commons/session.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,8 +23,6 @@ while($row = $result->fetch_assoc()){
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    <!-- Custom styles for this page -->
-    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 </head>
 
@@ -52,7 +44,7 @@ while($row = $result->fetch_assoc()){
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Manage Category</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Backup of Database</h1>
                         <button type="button" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="history.back();"><i class="fas fa-arrow-left fa-sm text-white-50"></i> Back</button>
                     </div>
 
@@ -62,37 +54,27 @@ while($row = $result->fetch_assoc()){
 
                     <div class="row">
 
-
+                    
                         <div class="col-xl-12 col-lg-12">
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-
+                                    <h6 class="m-0 font-weight-bold text-primary"></h6>
+                                    
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <!--  Code Here -->
                                     <?php
-                                    if (isset($_SESSION["msg"])) {
-                                        echo $_SESSION["msg"];
-                                        unset($_SESSION["msg"]);
-                                    }
+                                        if(isset($_SESSION["msg"])){
+                                            echo $_SESSION["msg"];
+                                            unset($_SESSION["msg"]);
+                                        }
                                     ?>
-                                    <div>
-                                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])."?categoryid=$categoryid"; ?>" method="POST">
-                                        <div class="my-3">
-                                                <label for="categoryname">Enter Category Name</label>
-                                                <input type="text" name="categoryname" id="categoryname" class="form-control" required value="<?= $categoryname; ?>">
-                                            </div>
 
-                                            <div class="my-3">
-                                                <input type="submit" value="Update Category" class="btn btn-primary" name="updateProcess">
-                                                <input type="reset" value="Reset" class="btn btn-danger">
-                                            </div>
-                                        </form>
-                                    </div>
-
-                                   
+                                    <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+                                        <input type="submit" value="Get Backup of Database" class="btn btn-primary" name="backupProcess">
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -101,7 +83,7 @@ while($row = $result->fetch_assoc()){
                 <!-- /.container-fluid -->
             </div>
             <!-- End of Main Content -->
-            <?php require_once("commons/footer.php"); ?>
+           <?php require_once("commons/footer.php"); ?>
         </div>
         <!-- End of Content Wrapper -->
     </div>
@@ -110,7 +92,7 @@ while($row = $result->fetch_assoc()){
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
-    </a>
+    </a>    
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -119,30 +101,21 @@ while($row = $result->fetch_assoc()){
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
     <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
     <!-- Page level custom scripts -->
-    <script src="js/demo/datatables-demo.js"></script>
 </body>
-
 </html>
 
 <?php
-if (isset($_POST["updateProcess"])) {
-    $categoryname = $category->filterData($_POST["categoryname"]);
-    
-    if($category->updateCategory($categoryid, $categoryname)){
-        $category->logWriter($email, "$categoryname Category Updated in Database");
-        $_SESSION["msg"] = "<div class='alert alert-success alert-dismissible fade show' role='alert'><strong>Success ! </strong> $categoryname Category Updated in Database
+    if(isset($_POST["backupProcess"])){
+        require_once("mysqldump/Mysqldump.php");
+        $backupfile = "backups/database_backup_".date("dmY_His").".sql";
+        $mysqldump = new Mysqldump("mysql:host=localhost;dbname=9211project;", 'root', '');
+        $mysqldump->start($backupfile);
+        $counters->logWriter($email, "Database Backup Successfully in $backupfile File.");
+
+        $_SESSION["msg"] = "<div class='alert alert-success alert-dismissible fade show' role='alert'><strong>Success ! </strong> Database Backup Successfully Saved in <b>$backupfile</b> File.
         <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
         <span aria-hidden='true'>&times;</span></button></div>";
-    }else{
-        $_SESSION["msg"] = "<div class='alert alert-danger alert-dismissible fade show' role='alert'><strong>Error ! </strong> $categoryname Already Exist in Database
-        <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-        <span aria-hidden='true'>&times;</span></button></div>";
+        header("location:backup");
     }
-    
-    header("location:editcategory?categoryid=$categoryid");
-}
+?>

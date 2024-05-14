@@ -97,7 +97,7 @@
                                         <textarea name="address" id="address" required  class="form-control" style="resize: none;"><?php echo $address; ?></textarea>
                                     </div>
                                     <div class="my-3">
-                                        <label for="googlemap" class="form-label">Enter Google Map URL</label>
+                                        <label for="googlemap" class="form-label">Enter Google Map URL</label> <button type="button" class="btn btn-info" data-toggle="modal" data-target="#viewmap">View</button>
                                         <textarea name="googlemap" id="googlemap" required  class="form-control" style="resize: none;"><?php echo $googlemap; ?></textarea>
                                     </div>
                                     <div class="my-3">
@@ -143,6 +143,33 @@
     <!-- Page level custom scripts -->
 </body>
 </html>
+
+<!-- viewmap -->
+
+<!-- The Modal -->
+<div class="modal" id="viewmap">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Current Google Location</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+      <iframe src="<?= $googlemap; ?>" style="border:0; height: auto; width: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 <?php
     if(isset($_POST["updateProcess"])){

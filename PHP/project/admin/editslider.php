@@ -1,5 +1,14 @@
 <?php
 require_once("commons/session.php");
+require_once("classes/Slider.class.php");
+
+$sliderid = $slider->filterData($_GET["sliderid"]);
+//echo $sliderid;
+$result = $slider->getSingleSliderImages($sliderid);
+
+while($row = $result->fetch_assoc()){
+    extract($row);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +60,6 @@ require_once("commons/session.php");
 
                     <div class="row">
 
-
                         <div class="col-xl-12 col-lg-12">
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
@@ -68,31 +76,48 @@ require_once("commons/session.php");
                                         unset($_SESSION["msg"]);
                                     }
                                     ?>
-                                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
+                                    <div class="m-2 border border-2 p-4">
+                                        <img src="<?= $sliderimagepath; ?>" class="mw-100 rounded">
+                                    </div>
+                                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])."?sliderid=$sliderid"; ?>" method="post" enctype="multipart/form-data">
                                         <div class="my-3">
                                             <label for="slidertitle">Enter Slider Title</label>
-                                            <input type="text" name="slidertitle" id="slidertitle" class="form-control" required autofocus>
+                                            <input type="text" name="slidertitle" id="slidertitle" class="form-control" required autofocus value=<?= $slidertitle; ?>>
                                         </div>
                                         <div class="my-3">
                                             <label for="slidertext">Enter Slider Text</label>
-                                            <textarea name="slidertext" id="slidertext" class="form-control" required style="resize: none;"></textarea>
+                                            <textarea name="slidertext" id="slidertext" class="form-control" required style="resize: none;"><?= $slidertext; ?></textarea>
                                         </div>
                                         <div class="my-3">
                                             <label for="sliderimage">Select Slider Image</label>
-                                            <input type="file" name="file1" id="file1" class="form-control" required accept=".jpg, .png, .svg">
+                                            <input type="file" name="file1" id="file1" class="form-control" accept=".jpg, .png, .svg">
                                         </div>
 
                                         <div class="my-3">
                                             <label for="imagetype">Select Image For</label>
                                             <select name="imagetype" id="imagetype" class="form-control">
-                                            <option value="1">Slider</option>
-                                            <option value="2">Gallery</option>
+                                            <?php 
+                                                if($imagetype == 1){
+                                                    echo "<option value='1' selected>Slider</option>
+                                                    <option value='2'>Gallery</option>";
+                                                }else{
+                                                    echo "<option value='1'>Slider</option>
+                                                    <option value='2' selected>Gallery</option>";
+                                                }
+                                            ?>
+                                            
                                             </select>
                                         </div>
 
                                         <div class="my-3">
-                                            <input type="submit" value="Add New Slider" class="btn btn-primary" name="addProcess">
+                                            <input type="submit" value="Update Slider" class="btn btn-primary" name="updateProcess">
                                             <input type="reset" value="Reset" class="btn btn-danger">
+                                    </form>
+
+                                    <hr>
+
+                                    <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"])."?delete=1&sliderid=$sliderid"; ?>" method="post" id="deleteForm">
+                                        <input type="button" value="Delete Image" class="btn btn-danger" onclick="confirmDelete()">
                                     </form>
                                 </div>
                             </div>
@@ -122,42 +147,63 @@ require_once("commons/session.php");
 
     <!-- Page level custom scripts -->
 </body>
-
 </html>
 
-<?php
-    if(isset($_POST["addProcess"])){
-        require_once("classes/Slider.class.php");
+<script>
+    function confirmDelete(){
+        if(confirm("Are you Sure to Delete This Image ?")){
+            document.getElementById("deleteForm").submit();
+        }
+    }
+</script>
 
+<?php
+    if(isset($_POST["updateProcess"])){
         $slidertitle = $slider->filterData($_POST["slidertitle"]);
         $slidertext = $slider->filterData($_POST["slidertext"]);
         $imagetype = $slider->filterData($_POST["imagetype"]);
         $file1 = $_FILES["file1"];
 
-        $name = $file1["name"];
-        $type = $file1["type"];
-        $source = $file1["tmp_name"];
-        $time = date("dmYhisa");
-        $random = rand(9999, 99999);
-        $destination = "img/sliderimages/$time $random $name";
+        /// check slider image is changed or not
+        if($file1["name"] !== ""){
+            $name = $file1["name"];
+            $type = $file1["type"];
+            $source = $file1["tmp_name"];
+            $time = date("dmYhisa");
+            $random = rand(9999, 99999);
+            $destination = "img/sliderimages/$time $random $name";
 
-        $validTypes = ["image/jpg", "image/jpeg", "image/png", "image/svg"];
-
-        if(in_array($type, $validTypes)){
-            $slider->addNewSlider($slidertitle, $slidertext, $destination, $imagetype);
-            move_uploaded_file($source, $destination);
-            $slider->logWriter($email, "$name New Slider Added in Database ");
-            $_SESSION["msg"] = "<div class='alert alert-success alert-dismissible fade show' role='alert'>
-            <strong>Success ! </strong>  New Slider Uploaded
-            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-            <span aria-hidden='true'>&times;</span></button></div>";
+            $validTypes = ["image/jpg", "image/jpeg", "image/png", "image/svg"];
+            if(in_array($type, $validTypes)){
+                move_uploaded_file($source, $destination);
+                $slider->updateSlider($sliderid, $slidertitle, $slidertext, $destination, $imagetype);
+            }else{
+                $_SESSION["msg"] = "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
+                <strong>Error ! </strong>  Must Select Valid Image file Only
+                <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                <span aria-hidden='true'>&times;</span></button></div>";
+            }
         }else{
-            $_SESSION["msg"] = "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
-            <strong>Error ! </strong>  Must Select Valid Image file Only
-            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-            <span aria-hidden='true'>&times;</span></button></div>";
+            $slider->updateSlider($sliderid, $slidertitle, $slidertext, null, $imagetype);
         }
 
-        header("location:addslider.php");
+        $slider->logWriter($email, "$name New Slider Updatd in Database ");
+        $_SESSION["msg"] = "<div class='alert alert-success alert-dismissible fade show' role='alert'>
+        <strong>Success ! </strong>  New Slider Uploaded
+        <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+        <span aria-hidden='true'>&times;</span></button></div>";
+        header("location:editslider?sliderid=$sliderid");
+    }
+
+    if(isset($_GET["delete"])){
+        $sliderid = $slider->filterData($_GET["sliderid"]);
+        $slider->deleteImage($sliderid);
+
+        $_SESSION["msg"] = "<div class='alert alert-success alert-dismissible fade show' role='alert'><strong>Success ! </strong> Image Deleted Successfully
+        <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+        <span aria-hidden='true'>&times;</span>
+        </button></div>";
+        header("location:addslider");
+  
     }
 ?>
