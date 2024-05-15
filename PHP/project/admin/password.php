@@ -60,6 +60,14 @@
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <!--  Code Here -->
+                                    <div class="my-3">
+                                        <?php
+                                            if(isset($_SESSION["msg"])){
+                                                echo $_SESSION["msg"];
+                                                unset($_SESSION["msg"]);
+                                            }
+                                        ?>
+                                    </div>
                                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"> 
                                     <div class="my-3">
                                         <label for="cpass" class="form-label">Enter Current Password</label>
@@ -79,14 +87,7 @@
                                     </div>
                                     </form>
 
-                                    <div class="my-3">
-                                        <?php
-                                            if(isset($_SESSION["msg"])){
-                                                echo $_SESSION["msg"];
-                                                unset($_SESSION["msg"]);
-                                            }
-                                        ?>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>

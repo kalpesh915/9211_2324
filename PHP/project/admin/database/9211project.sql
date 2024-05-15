@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2024 at 06:44 AM
+-- Generation Time: May 15, 2024 at 07:00 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.12
 
@@ -42,7 +42,7 @@ CREATE TABLE `adminusers` (
 --
 
 INSERT INTO `adminusers` (`userid`, `fname`, `lname`, `email`, `password`, `created_at`, `updated_at`) VALUES
-(1, 'Kenil S', 'KSanganiK', 'admin@project.com', '3acd0be86de7dcccdbf91b20f94a68cea535922d', '2024-05-01 04:19:40', '2024-05-06 04:15:17');
+(1, 'Kenil S', 'KSanganiK', 'admin@project.com', 'd033e22ae348aeb5660fc2140aec35850c4da997', '2024-05-01 04:19:40', '2024-05-15 04:01:07');
 
 -- --------------------------------------------------------
 
@@ -64,7 +64,7 @@ CREATE TABLE `categorys` (
 INSERT INTO `categorys` (`categoryid`, `categoryname`, `categoryclassname`, `status`) VALUES
 (1, 'Demo1', 'Demo1', 1),
 (2, 'Demo 11', 'Demo-11', 1),
-(3, 'another text', 'another-text', 1);
+(3, 'another text', 'another-text', 0);
 
 -- --------------------------------------------------------
 
@@ -220,7 +220,23 @@ INSERT INTO `logs` (`logid`, `logtime`, `email`, `logmessage`, `status`) VALUES
 (88, '2024-05-13 04:32:27', 'admin@project.com', 'Team Service Added in Database', 1),
 (89, '2024-05-13 04:33:25', 'admin@project.com', 'Cars Service Updated in Database', 1),
 (90, '2024-05-13 04:34:10', 'admin@project.com', 'Cars Service Updated in Database', 1),
-(91, '2024-05-13 04:38:41', 'admin@project.com', 'Our Team Service Updated in Database', 1);
+(91, '2024-05-13 04:38:41', 'admin@project.com', 'Our Team Service Updated in Database', 1),
+(92, '2024-05-13 04:58:30', 'admin@project.com', 'Login Successfully', 1),
+(93, '2024-05-13 04:59:39', 'admin@project.com', 'Logout Successfully', 1),
+(94, '2024-05-13 06:14:46', 'admin@project.com', 'Login Successfully', 1),
+(95, '2024-05-13 06:16:01', 'admin@project.com', 'Contact Details are Updated to kenil sangani, 8574964565, 9632147850, , kenil@yahoo.com, 9966554455, Near Naptune Tower Kalawad Road Rajkot, https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14766.863003585162!2d70.77560319999999!3d22.288754849999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959ca2471312a07%3A0xabc998708aa8d138!2sBAPS%20Shri%20Swaminarayan%20Mandir%2C%20Rajkot!5e0!3m2!1sen!2sin!4v1714625364652!5m2!1sen!2sin', 1),
+(96, '2024-05-13 06:17:01', 'admin@project.com', 'Logout Successfully', 1),
+(97, '2024-05-14 03:46:45', 'admin@project.com', 'Login Successfully', 1),
+(98, '2024-05-14 04:22:05', 'admin@project.com', 'Database Backup Successfully in backups/database_backup_14052024_095204.sql File.', 1),
+(99, '2024-05-14 04:22:17', 'admin@project.com', 'Database Backup Successfully in backups/database_backup_14052024_095216.sql File.', 1),
+(100, '2024-05-14 04:43:17', 'admin@project.com', ' New Slider Updatd in Database ', 1),
+(101, '2024-05-14 04:43:33', 'admin@project.com', ' New Slider Updatd in Database ', 1),
+(102, '2024-05-14 05:02:34', 'admin@project.com', 'Database Backup Successfully in backups/database_backup_14052024_103233.sql File.', 0),
+(103, '2024-05-14 05:02:44', 'admin@project.com', 'Logout Successfully', 0),
+(104, '2024-05-15 04:00:53', 'admin@project.com', 'Login Successfully', 0),
+(105, '2024-05-15 04:01:07', 'admin@project.com', 'Password Updated', 0),
+(106, '2024-05-15 04:44:02', 'admin@project.com', 'Kenil Sangani Team Member Added in Database', 0),
+(107, '2024-05-15 04:59:50', 'admin@project.com', 'Logout Successfully', 0);
 
 -- --------------------------------------------------------
 
@@ -324,6 +340,7 @@ CREATE TABLE `sliders` (
   `slidertitle` varchar(128) NOT NULL,
   `slidertext` varchar(1024) NOT NULL,
   `sliderimagepath` varchar(256) NOT NULL,
+  `imagetype` tinyint(4) NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -331,10 +348,9 @@ CREATE TABLE `sliders` (
 -- Dumping data for table `sliders`
 --
 
-INSERT INTO `sliders` (`sliderid`, `slidertitle`, `slidertext`, `sliderimagepath`, `status`) VALUES
-(1, 'Slider 1', 'This is Slider 1', 'img/sliderimages/08052024062537am 47660 img1.jpg', 1),
-(2, 'Slider 2', 'This is Slider 2', 'img/sliderimages/08052024062604am 13720 img2.jpg', 1),
-(3, 'Slider 3', 'This is Slider 3', 'img/sliderimages/08052024062631am 22424 img3.jpg', 1);
+INSERT INTO `sliders` (`sliderid`, `slidertitle`, `slidertext`, `sliderimagepath`, `imagetype`, `status`) VALUES
+(2, 'Slider 2', 'This is Slider 2', 'img/sliderimages/08052024062604am 13720 img2.jpg', 1, 1),
+(3, 'Slider', 'This is Slider 3', 'img/sliderimages/08052024062631am 22424 img3.jpg', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -383,6 +399,38 @@ INSERT INTO `subscribers` (`subscriberid`, `subscribetime`, `subscriberemail`, `
 (2, '2024-05-11 04:11:14', 'ridham@gmail.com', 1),
 (3, '2024-05-11 04:11:35', 'bhalabhai@gmail.com', 1),
 (4, '2024-05-11 04:11:35', 'khushi@gmail.com', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `team`
+--
+
+CREATE TABLE `team` (
+  `teamid` int(11) NOT NULL,
+  `membername` varchar(64) NOT NULL,
+  `memberdesignation` varchar(128) NOT NULL,
+  `memberdescription` varchar(256) NOT NULL,
+  `teamtwitter` varchar(256) NOT NULL,
+  `teamfacebook` varchar(256) NOT NULL,
+  `teamlinkedin` varchar(256) NOT NULL,
+  `teaminstagram` varchar(256) NOT NULL,
+  `teamgithub` varchar(256) NOT NULL,
+  `teamyoutube` varchar(256) NOT NULL,
+  `teamsnapchat` varchar(256) NOT NULL,
+  `teamtelegram` varchar(256) NOT NULL,
+  `memberimage` varchar(512) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `upated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `team`
+--
+
+INSERT INTO `team` (`teamid`, `membername`, `memberdesignation`, `memberdescription`, `teamtwitter`, `teamfacebook`, `teamlinkedin`, `teaminstagram`, `teamgithub`, `teamyoutube`, `teamsnapchat`, `teamtelegram`, `memberimage`, `status`, `created_at`, `upated_at`) VALUES
+(1, 'Kenil Sangani', 'Manager', '10+ year Developing Exprience', 'https://www.dummyurl.com', 'https://www.dummyurl.com', 'https://www.dummyurl.com', 'https://www.dummyurl.com', 'https://www.dummyurl.com', 'https://www.dummyurl.com', 'https://www.dummyurl.com', 'https://www.dummyurl.com', 'img/team/38865 Kenil Sangani img0.jpg', 1, '2024-05-15 04:44:02', '2024-05-15 04:50:00');
 
 --
 -- Indexes for dumped tables
@@ -461,6 +509,12 @@ ALTER TABLE `subscribers`
   ADD PRIMARY KEY (`subscriberid`);
 
 --
+-- Indexes for table `team`
+--
+ALTER TABLE `team`
+  ADD PRIMARY KEY (`teamid`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -492,7 +546,7 @@ ALTER TABLE `faq`
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `logid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+  MODIFY `logid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 
 --
 -- AUTO_INCREMENT for table `messages`
@@ -535,6 +589,12 @@ ALTER TABLE `socialmedia`
 --
 ALTER TABLE `subscribers`
   MODIFY `subscriberid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `team`
+--
+ALTER TABLE `team`
+  MODIFY `teamid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
