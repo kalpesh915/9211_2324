@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 15, 2024 at 07:00 AM
+-- Generation Time: May 17, 2024 at 06:41 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.12
 
@@ -43,6 +43,28 @@ CREATE TABLE `adminusers` (
 
 INSERT INTO `adminusers` (`userid`, `fname`, `lname`, `email`, `password`, `created_at`, `updated_at`) VALUES
 (1, 'Kenil S', 'KSanganiK', 'admin@project.com', 'd033e22ae348aeb5660fc2140aec35850c4da997', '2024-05-01 04:19:40', '2024-05-15 04:01:07');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `career`
+--
+
+CREATE TABLE `career` (
+  `careerid` int(11) NOT NULL,
+  `fname` varchar(64) NOT NULL,
+  `lname` varchar(64) NOT NULL,
+  `gender` varchar(10) NOT NULL,
+  `dateofbirth` date NOT NULL,
+  `phone` varchar(15) NOT NULL,
+  `emailaddress` varchar(128) NOT NULL,
+  `jobtype` varchar(64) NOT NULL,
+  `qualification` varchar(128) NOT NULL,
+  `experience` varchar(128) NOT NULL,
+  `resumepath` varchar(256) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 0,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -236,7 +258,20 @@ INSERT INTO `logs` (`logid`, `logtime`, `email`, `logmessage`, `status`) VALUES
 (104, '2024-05-15 04:00:53', 'admin@project.com', 'Login Successfully', 0),
 (105, '2024-05-15 04:01:07', 'admin@project.com', 'Password Updated', 0),
 (106, '2024-05-15 04:44:02', 'admin@project.com', 'Kenil Sangani Team Member Added in Database', 0),
-(107, '2024-05-15 04:59:50', 'admin@project.com', 'Logout Successfully', 0);
+(107, '2024-05-15 04:59:50', 'admin@project.com', 'Logout Successfully', 0),
+(108, '2024-05-16 04:03:10', 'admin@project.com', 'Login Successfully', 0),
+(109, '2024-05-16 04:41:37', 'admin@project.com', 'KENIL Gammer Team Member Updated in Database', 0),
+(110, '2024-05-16 04:42:10', 'admin@project.com', 'KENIL Gammer Team Member Updated in Database', 0),
+(111, '2024-05-16 04:42:37', 'admin@project.com', 'KENIL Gammer Team Member Updated in Database', 0),
+(112, '2024-05-16 04:42:49', 'admin@project.com', 'KENIL Gammer Team Member Updated in Database', 0),
+(113, '2024-05-16 04:43:45', 'admin@project.com', 'KENIL Gammer Team Member Updated in Database', 0),
+(114, '2024-05-16 04:43:59', 'admin@project.com', 'KENIL Gammer Team Member Updated in Database', 0),
+(115, '2024-05-16 04:44:07', 'admin@project.com', 'KENIL Gammer Team Member Updated in Database', 0),
+(116, '2024-05-16 04:44:21', 'admin@project.com', 'KENIL Gammer Team Member Updated in Database', 0),
+(117, '2024-05-16 04:45:36', 'admin@project.com', 'Kenil Sangani Team Member Updated in Database', 0),
+(118, '2024-05-16 04:50:19', 'admin@project.com', 'Kenil Sangani Team Member Added in Database', 0),
+(119, '2024-05-16 04:51:33', 'admin@project.com', 'Logout Successfully', 0),
+(120, '2024-05-17 03:57:09', 'admin@project.com', 'Login Successfully', 0);
 
 -- --------------------------------------------------------
 
@@ -426,13 +461,6 @@ CREATE TABLE `team` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `team`
---
-
-INSERT INTO `team` (`teamid`, `membername`, `memberdesignation`, `memberdescription`, `teamtwitter`, `teamfacebook`, `teamlinkedin`, `teaminstagram`, `teamgithub`, `teamyoutube`, `teamsnapchat`, `teamtelegram`, `memberimage`, `status`, `created_at`, `upated_at`) VALUES
-(1, 'Kenil Sangani', 'Manager', '10+ year Developing Exprience', 'https://www.dummyurl.com', 'https://www.dummyurl.com', 'https://www.dummyurl.com', 'https://www.dummyurl.com', 'https://www.dummyurl.com', 'https://www.dummyurl.com', 'https://www.dummyurl.com', 'https://www.dummyurl.com', 'img/team/38865 Kenil Sangani img0.jpg', 1, '2024-05-15 04:44:02', '2024-05-15 04:50:00');
-
---
 -- Indexes for dumped tables
 --
 
@@ -441,6 +469,12 @@ INSERT INTO `team` (`teamid`, `membername`, `memberdesignation`, `memberdescript
 --
 ALTER TABLE `adminusers`
   ADD PRIMARY KEY (`userid`);
+
+--
+-- Indexes for table `career`
+--
+ALTER TABLE `career`
+  ADD PRIMARY KEY (`careerid`);
 
 --
 -- Indexes for table `categorys`
@@ -525,6 +559,12 @@ ALTER TABLE `adminusers`
   MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `career`
+--
+ALTER TABLE `career`
+  MODIFY `careerid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `categorys`
 --
 ALTER TABLE `categorys`
@@ -546,7 +586,7 @@ ALTER TABLE `faq`
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `logid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
+  MODIFY `logid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
 
 --
 -- AUTO_INCREMENT for table `messages`
@@ -594,7 +634,7 @@ ALTER TABLE `subscribers`
 -- AUTO_INCREMENT for table `team`
 --
 ALTER TABLE `team`
-  MODIFY `teamid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `teamid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
